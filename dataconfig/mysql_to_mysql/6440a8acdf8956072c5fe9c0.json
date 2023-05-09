@@ -1,0 +1,88 @@
+{
+    "id": "643e345efa67494f1d9c3f28",
+    "name": "mysql_to_mysql",
+    "jobId": "6440a8aadf8956072c5fe9bd",
+    "jobTaskId": "6440a8acdf8956072c5fe9c0",
+    "build_operation": {
+        "ops": {
+            "filter": [
+                {
+                    "and": [
+                        {
+                            "__comment": "specification of an op, specific to op",
+                            "at": "$",
+                            "where": {
+                                "field": "place",
+                                "operator": "not_in",
+                                "value": [
+                                    "Houston",
+                                    "Texas"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "userId": "641d682a4280a95d3da9168a",
+    "is_enabled": true,
+    "image": "etl-modules",
+    "version": "latest",
+    "source": {
+        "id": "642fd392f289a3aa36f9642c",
+        "type": "MySQL",
+        "name": "hieu_mysql_machine",
+        "host": "localhost",
+        "port": "3306",
+        "user": "root",
+        "password": "root",
+        "database": "databiz_demo",
+        "schema": {
+            "table": "data_energy",
+            "select": [
+                "id",
+                "location",
+                "tax",
+                "measurement",
+                "place",
+                "revenue"
+            ]
+        }
+    },
+    "destinations": [
+        {
+            "id": "6437a2b67d71c3349d790c2c",
+            "type": "MySQL",
+            "name": "MySQL",
+            "host": "localhost",
+            "port": "3306",
+            "user": "root",
+            "password": "root",
+            "database": "databiz_demo",
+            "ssl": true,
+            "schema": {
+                "create_tables": [
+                    ""
+                ],
+                "sink_to": "data_energy_des",
+                "select": [
+                    "id",
+                    "location",
+                    "tax",
+                    "measurement",
+                    "place",
+                    "revenue"
+                ]
+            }
+        },
+        {
+            "type": "logfile",
+            "name": "Logfile",
+            "schema": {
+                "filename": "6440a8acdf8956072c5fe9c0.log",
+                "logpath": "/dataconfig/mysql_to_mysql_643e345efa67494f1d9c3f28/logs"
+            }
+        }
+    ]
+}

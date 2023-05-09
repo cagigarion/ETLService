@@ -1,0 +1,512 @@
+2023-04-14 15:28:07,128 - root - DEBUG - Info Config {'id': '642fe645ae925cc0c2cd5302', 'name': 'sample_data_energy', 'jobId': '642fe661ae925cc0c2cd5303', 'jobTaskId': '642fe661ae925cc0c2cd5304', 'build_operation': {}, 'userId': '642664152a9ea736837171b4', 'is_enabled': True, 'image': 'etl-modules', 'version': 'latest', 'source': {'id': '642fd392f289a3aa36f9642c', 'type': 'MySQL', 'name': 'hieu_mysql_machine', 'host': '192.168.10.21', 'port': '3306', 'user': 'root', 'password': 'root', 'database': 'databiz_demo', 'schema': {'table': 'Products', 'select': ['ProductID', 'Product_Name', 'Cost']}}, 'destinations': [{'id': '642fd392f289a3aa36f9642c', 'type': 'MySQL', 'name': 'hieu_mysql_machine', 'host': '192.168.10.21', 'port': '3306', 'user': 'root', 'password': 'root', 'database': 'databiz_demo', 'schema': {'create_tables': ['CREATE TABLE `product_des` (`id` int NOT NULL AUTO_INCREMENT, ProductID varchar(220) NULL, Product_Name varchar(220) NULL, Cost varchar(220) NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB'], 'sink_to': 'product_des', 'select': ['ProductID', 'Product_Name', 'Cost']}}, {'type': 'logfile', 'name': 'Logfile', 'schema': {'filename': '642fe661ae925cc0c2cd5304.log', 'logpath': '/dataconfig/sample_data_energy_642fe645ae925cc0c2cd5302/logs'}}]}
+2023-04-14 15:28:07,128 - root - DEBUG - Location to load plugins = /home/cabar/datapeach/ETLService/src
+2023-04-14 15:28:07,152 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.test_operator
+2023-04-14 15:28:07,160 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.filter_operator
+2023-04-14 15:28:07,160 - plugin.discovery - DEBUG - found plugin spec in module_loader.operator_plugins.filter_operator:MatchPlugin PluginSpec(operator.filter = <class 'module_loader.operator_plugins.filter_operator.MatchPlugin'>)
+2023-04-14 15:28:07,161 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.pd_combine_operator
+2023-04-14 15:28:07,161 - plugin.discovery - DEBUG - found plugin spec in module_loader.operator_plugins.pd_combine_operator:PDCombinePlugin PluginSpec(operator.pd_combine = <class 'module_loader.operator_plugins.pd_combine_operator.PDCombinePlugin'>)
+2023-04-14 15:28:07,161 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.enrich_operator
+2023-04-14 15:28:07,161 - plugin.discovery - DEBUG - found plugin spec in module_loader.operator_plugins.enrich_operator:PDCombinePlugin PluginSpec(operator.enrich = <class 'module_loader.operator_plugins.enrich_operator.PDCombinePlugin'>)
+2023-04-14 15:28:07,462 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.pd_enrich_operator
+2023-04-14 15:28:07,462 - plugin.discovery - DEBUG - found plugin spec in module_loader.operator_plugins.pd_enrich_operator:PDEnrichPlugin PluginSpec(operator.pd_match1 = <class 'module_loader.operator_plugins.pd_enrich_operator.PDEnrichPlugin'>)
+2023-04-14 15:28:07,462 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins
+2023-04-14 15:28:07,494 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.enrichment_operator
+2023-04-14 15:28:07,494 - plugin.discovery - DEBUG - found plugin spec in module_loader.operator_plugins.enrichment_operator:EnrichmentPlugin PluginSpec(operator.enrich_temp = <class 'module_loader.operator_plugins.enrichment_operator.EnrichmentPlugin'>)
+2023-04-14 15:28:07,514 - plugin.discovery - DEBUG - scanning module module_loader.source_plugins.pulsar_handler
+2023-04-14 15:28:07,514 - plugin.discovery - DEBUG - found plugin spec in module_loader.source_plugins.pulsar_handler:PulsarPlugin PluginSpec(source.pulsar = <class 'module_loader.source_plugins.pulsar_handler.PulsarPlugin'>)
+2023-04-14 15:28:07,632 - plugin.discovery - DEBUG - scanning module module_loader.source_plugins.mysql_handler
+2023-04-14 15:28:07,632 - plugin.discovery - DEBUG - found plugin spec in module_loader.source_plugins.mysql_handler:SourceMysqlPlugin PluginSpec(source.mysql = <class 'module_loader.source_plugins.mysql_handler.SourceMysqlPlugin'>)
+2023-04-14 15:28:07,633 - plugin.discovery - DEBUG - scanning module module_loader.source_plugins
+2023-04-14 15:28:07,634 - plugin.discovery - DEBUG - scanning module module_loader.sink_plugins.logfile_handler
+2023-04-14 15:28:07,634 - plugin.discovery - DEBUG - found plugin spec in module_loader.sink_plugins.logfile_handler:LogFilePlugin PluginSpec(sink.logfile = <class 'module_loader.sink_plugins.logfile_handler.LogFilePlugin'>)
+2023-04-14 15:28:07,634 - plugin.discovery - DEBUG - scanning module module_loader.sink_plugins
+2023-04-14 15:28:07,635 - plugin.discovery - DEBUG - scanning module module_loader.sink_plugins.oracle_handler
+2023-04-14 15:28:07,635 - plugin.discovery - DEBUG - found plugin spec in module_loader.sink_plugins.oracle_handler:OraclePlugin PluginSpec(sink.oracle = <class 'module_loader.sink_plugins.oracle_handler.OraclePlugin'>)
+2023-04-14 15:28:13,700 - plugin.discovery - DEBUG - scanning module module_loader.sink_plugins.mysql_handler
+2023-04-14 15:28:13,700 - plugin.discovery - DEBUG - found plugin spec in module_loader.sink_plugins.mysql_handler:MysqlPlugin PluginSpec(sink.mysql = <class 'module_loader.sink_plugins.mysql_handler.MysqlPlugin'>)
+2023-04-14 15:28:23,545 - root - DEBUG - Run table script successfully: ['CREATE TABLE `product_des` (`id` int NOT NULL AUTO_INCREMENT, ProductID varchar(220) NULL, Product_Name varchar(220) NULL, Cost varchar(220) NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB']
+2023-04-14 15:28:34,732 - root - ERROR - Have not run the tranform data yet: 'ops'
+2023-04-14 15:30:42,191 - root - DEBUG - Info Config {'id': '642fe645ae925cc0c2cd5302', 'name': 'sample_data_energy', 'jobId': '642fe661ae925cc0c2cd5303', 'jobTaskId': '642fe661ae925cc0c2cd5304', 'build_operation': {'ops': {'filter': [{'__comment': 'specification of an op, specific to op', 'at': '$', 'where': {'field': 'state', 'operator': '=', 'value': 'Houston'}}, {'__comment': 'specification of an op, specific to op', 'at': '$', 'where': {'field': 'measurement', 'operator': '=', 'value': 'Gas (Therms)'}}], 'enrich': [{'field': 'location', 'pattern': 'https://maps.google.com/?q={latitude},{longitude}'}]}}, 'userId': '642664152a9ea736837171b4', 'is_enabled': True, 'image': 'etl-modules', 'version': 'latest', 'source': {'id': '642fd392f289a3aa36f9642c', 'type': 'MySQL', 'name': 'hieu_mysql_machine', 'host': '192.168.10.21', 'port': '3306', 'user': 'root', 'password': 'root', 'database': 'databiz_demo', 'schema': {'table': 'Products', 'select': ['ProductID', 'Product_Name', 'Cost']}}, 'destinations': [{'id': '642fd392f289a3aa36f9642c', 'type': 'MySQL', 'name': 'hieu_mysql_machine', 'host': '192.168.10.21', 'port': '3306', 'user': 'root', 'password': 'root', 'database': 'databiz_demo', 'schema': {'create_tables': ['DROP TABLE IF EXISTS `product_des`; CREATE TABLE `product_des` (`id` int NOT NULL AUTO_INCREMENT, ProductID varchar(220) NULL, Product_Name varchar(220) NULL, Cost varchar(220) NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB'], 'sink_to': 'product_des', 'select': ['ProductID', 'Product_Name', 'Cost']}}, {'type': 'logfile', 'name': 'Logfile', 'schema': {'filename': '642fe661ae925cc0c2cd5304.log', 'logpath': '/dataconfig/sample_data_energy_642fe645ae925cc0c2cd5302/logs'}}]}
+2023-04-14 15:30:42,191 - root - DEBUG - Location to load plugins = /home/cabar/datapeach/ETLService/src
+2023-04-14 15:30:42,214 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.test_operator
+2023-04-14 15:30:42,215 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.enrich_operator
+2023-04-14 15:30:42,215 - plugin.discovery - DEBUG - found plugin spec in module_loader.operator_plugins.enrich_operator:PDCombinePlugin PluginSpec(operator.enrich = <class 'module_loader.operator_plugins.enrich_operator.PDCombinePlugin'>)
+2023-04-14 15:30:42,215 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins
+2023-04-14 15:30:42,249 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.enrichment_operator
+2023-04-14 15:30:42,249 - plugin.discovery - DEBUG - found plugin spec in module_loader.operator_plugins.enrichment_operator:EnrichmentPlugin PluginSpec(operator.enrich_temp = <class 'module_loader.operator_plugins.enrichment_operator.EnrichmentPlugin'>)
+2023-04-14 15:30:42,250 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.pd_combine_operator
+2023-04-14 15:30:42,250 - plugin.discovery - DEBUG - found plugin spec in module_loader.operator_plugins.pd_combine_operator:PDCombinePlugin PluginSpec(operator.pd_combine = <class 'module_loader.operator_plugins.pd_combine_operator.PDCombinePlugin'>)
+2023-04-14 15:30:42,266 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.filter_operator
+2023-04-14 15:30:42,266 - plugin.discovery - DEBUG - found plugin spec in module_loader.operator_plugins.filter_operator:MatchPlugin PluginSpec(operator.filter = <class 'module_loader.operator_plugins.filter_operator.MatchPlugin'>)
+2023-04-14 15:30:42,549 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.pd_enrich_operator
+2023-04-14 15:30:42,549 - plugin.discovery - DEBUG - found plugin spec in module_loader.operator_plugins.pd_enrich_operator:PDEnrichPlugin PluginSpec(operator.pd_match1 = <class 'module_loader.operator_plugins.pd_enrich_operator.PDEnrichPlugin'>)
+2023-04-14 15:30:42,664 - plugin.discovery - DEBUG - scanning module module_loader.source_plugins.mysql_handler
+2023-04-14 15:30:42,664 - plugin.discovery - DEBUG - found plugin spec in module_loader.source_plugins.mysql_handler:SourceMysqlPlugin PluginSpec(source.mysql = <class 'module_loader.source_plugins.mysql_handler.SourceMysqlPlugin'>)
+2023-04-14 15:30:42,664 - plugin.discovery - DEBUG - scanning module module_loader.source_plugins
+2023-04-14 15:30:42,682 - plugin.discovery - DEBUG - scanning module module_loader.source_plugins.pulsar_handler
+2023-04-14 15:30:42,682 - plugin.discovery - DEBUG - found plugin spec in module_loader.source_plugins.pulsar_handler:PulsarPlugin PluginSpec(source.pulsar = <class 'module_loader.source_plugins.pulsar_handler.PulsarPlugin'>)
+2023-04-14 15:30:42,684 - plugin.discovery - DEBUG - scanning module module_loader.sink_plugins.logfile_handler
+2023-04-14 15:30:42,684 - plugin.discovery - DEBUG - found plugin spec in module_loader.sink_plugins.logfile_handler:LogFilePlugin PluginSpec(sink.logfile = <class 'module_loader.sink_plugins.logfile_handler.LogFilePlugin'>)
+2023-04-14 15:30:44,112 - plugin.discovery - DEBUG - scanning module module_loader.sink_plugins.mysql_handler
+2023-04-14 15:30:44,112 - plugin.discovery - DEBUG - found plugin spec in module_loader.sink_plugins.mysql_handler:MysqlPlugin PluginSpec(sink.mysql = <class 'module_loader.sink_plugins.mysql_handler.MysqlPlugin'>)
+2023-04-14 15:30:44,113 - plugin.discovery - DEBUG - scanning module module_loader.sink_plugins.oracle_handler
+2023-04-14 15:30:44,113 - plugin.discovery - DEBUG - found plugin spec in module_loader.sink_plugins.oracle_handler:OraclePlugin PluginSpec(sink.oracle = <class 'module_loader.sink_plugins.oracle_handler.OraclePlugin'>)
+2023-04-14 15:30:44,113 - plugin.discovery - DEBUG - scanning module module_loader.sink_plugins
+2023-04-14 15:30:47,470 - root - DEBUG - Run table script successfully: ['DROP TABLE IF EXISTS `product_des`; CREATE TABLE `product_des` (`id` int NOT NULL AUTO_INCREMENT, ProductID varchar(220) NULL, Product_Name varchar(220) NULL, Cost varchar(220) NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB']
+2023-04-14 16:14:43,378 - root - DEBUG - op=filter: at=$, where=state ==> = ==> Houston
+2023-04-14 16:14:43,378 - root - DEBUG - $[?(state="Houston")]
+2023-04-14 16:14:43,414 - root - DEBUG - op=filter: at=$, where=measurement ==> = ==> Gas (Therms)
+2023-04-14 16:14:43,414 - root - DEBUG - $[?(measurement="Gas (Therms)")]
+2023-04-14 16:23:02,155 - root - DEBUG - Info Config {'id': '642fe645ae925cc0c2cd5302', 'name': 'sample_data_energy', 'jobId': '642fe661ae925cc0c2cd5303', 'jobTaskId': '642fe661ae925cc0c2cd5304', 'build_operation': {'ops': {'filter': [{'__comment': 'specification of an op, specific to op', 'at': '$', 'where': {'field': 'Cost', 'operator': '=', 'value': '150'}}]}}, 'userId': '642664152a9ea736837171b4', 'is_enabled': True, 'image': 'etl-modules', 'version': 'latest', 'source': {'id': '642fd392f289a3aa36f9642c', 'type': 'MySQL', 'name': 'hieu_mysql_machine', 'host': '192.168.10.21', 'port': '3306', 'user': 'root', 'password': 'root', 'database': 'databiz_demo', 'schema': {'table': 'Products', 'select': ['ProductID', 'Product_Name', 'Cost']}}, 'destinations': [{'id': '642fd392f289a3aa36f9642c', 'type': 'MySQL', 'name': 'hieu_mysql_machine', 'host': '192.168.10.21', 'port': '3306', 'user': 'root', 'password': 'root', 'database': 'databiz_demo', 'schema': {'create_tables': ['DROP TABLE IF EXISTS `product_des`; CREATE TABLE `product_des` (`id` int NOT NULL AUTO_INCREMENT, ProductID varchar(220) NULL, Product_Name varchar(220) NULL, Cost varchar(220) NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB'], 'sink_to': 'product_des', 'select': ['ProductID', 'Product_Name', 'Cost']}}, {'type': 'logfile', 'name': 'Logfile', 'schema': {'filename': '642fe661ae925cc0c2cd5304.log', 'logpath': '/dataconfig/sample_data_energy_642fe645ae925cc0c2cd5302/logs'}}]}
+2023-04-14 16:23:02,155 - root - DEBUG - Location to load plugins = /home/cabar/datapeach/ETLService/src
+2023-04-14 16:23:02,178 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.pd_combine_operator
+2023-04-14 16:23:02,178 - plugin.discovery - DEBUG - found plugin spec in module_loader.operator_plugins.pd_combine_operator:PDCombinePlugin PluginSpec(operator.pd_combine = <class 'module_loader.operator_plugins.pd_combine_operator.PDCombinePlugin'>)
+2023-04-14 16:23:02,179 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.enrich_operator
+2023-04-14 16:23:02,179 - plugin.discovery - DEBUG - found plugin spec in module_loader.operator_plugins.enrich_operator:PDCombinePlugin PluginSpec(operator.enrich = <class 'module_loader.operator_plugins.enrich_operator.PDCombinePlugin'>)
+2023-04-14 16:23:02,179 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins
+2023-04-14 16:23:02,471 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.pd_enrich_operator
+2023-04-14 16:23:02,471 - plugin.discovery - DEBUG - found plugin spec in module_loader.operator_plugins.pd_enrich_operator:PDEnrichPlugin PluginSpec(operator.pd_match1 = <class 'module_loader.operator_plugins.pd_enrich_operator.PDEnrichPlugin'>)
+2023-04-14 16:23:02,472 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.test_operator
+2023-04-14 16:23:02,472 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.filter_operator
+2023-04-14 16:23:02,472 - plugin.discovery - DEBUG - found plugin spec in module_loader.operator_plugins.filter_operator:MatchPlugin PluginSpec(operator.filter = <class 'module_loader.operator_plugins.filter_operator.MatchPlugin'>)
+2023-04-14 16:23:02,504 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.enrichment_operator
+2023-04-14 16:23:02,505 - plugin.discovery - DEBUG - found plugin spec in module_loader.operator_plugins.enrichment_operator:EnrichmentPlugin PluginSpec(operator.enrich_temp = <class 'module_loader.operator_plugins.enrichment_operator.EnrichmentPlugin'>)
+2023-04-14 16:23:02,523 - plugin.discovery - DEBUG - scanning module module_loader.source_plugins.pulsar_handler
+2023-04-14 16:23:02,523 - plugin.discovery - DEBUG - found plugin spec in module_loader.source_plugins.pulsar_handler:PulsarPlugin PluginSpec(source.pulsar = <class 'module_loader.source_plugins.pulsar_handler.PulsarPlugin'>)
+2023-04-14 16:23:02,523 - plugin.discovery - DEBUG - scanning module module_loader.source_plugins
+2023-04-14 16:23:02,640 - plugin.discovery - DEBUG - scanning module module_loader.source_plugins.mysql_handler
+2023-04-14 16:23:02,641 - plugin.discovery - DEBUG - found plugin spec in module_loader.source_plugins.mysql_handler:SourceMysqlPlugin PluginSpec(source.mysql = <class 'module_loader.source_plugins.mysql_handler.SourceMysqlPlugin'>)
+2023-04-14 16:23:02,642 - plugin.discovery - DEBUG - scanning module module_loader.sink_plugins
+2023-04-14 16:23:02,642 - plugin.discovery - DEBUG - scanning module module_loader.sink_plugins.logfile_handler
+2023-04-14 16:23:02,642 - plugin.discovery - DEBUG - found plugin spec in module_loader.sink_plugins.logfile_handler:LogFilePlugin PluginSpec(sink.logfile = <class 'module_loader.sink_plugins.logfile_handler.LogFilePlugin'>)
+2023-04-14 16:23:16,180 - plugin.discovery - DEBUG - scanning module module_loader.sink_plugins.mysql_handler
+2023-04-14 16:23:16,180 - plugin.discovery - DEBUG - found plugin spec in module_loader.sink_plugins.mysql_handler:MysqlPlugin PluginSpec(sink.mysql = <class 'module_loader.sink_plugins.mysql_handler.MysqlPlugin'>)
+2023-04-14 16:23:16,181 - plugin.discovery - DEBUG - scanning module module_loader.sink_plugins.oracle_handler
+2023-04-14 16:23:16,181 - plugin.discovery - DEBUG - found plugin spec in module_loader.sink_plugins.oracle_handler:OraclePlugin PluginSpec(sink.oracle = <class 'module_loader.sink_plugins.oracle_handler.OraclePlugin'>)
+2023-04-14 16:23:24,357 - root - DEBUG - Run table script successfully: ['DROP TABLE IF EXISTS `product_des`; CREATE TABLE `product_des` (`id` int NOT NULL AUTO_INCREMENT, ProductID varchar(220) NULL, Product_Name varchar(220) NULL, Cost varchar(220) NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB']
+2023-04-14 16:23:41,727 - root - DEBUG - op=filter: at=$, where=Cost ==> = ==> 150
+2023-04-14 16:23:41,727 - root - DEBUG - $[?(Cost="150")]
+2023-04-14 16:24:07,590 - root - DEBUG - Show value of filter with the data: {'ProductID': 1, 'Product_Name': 'Parle G', 'Cost': 100}
+2023-04-14 16:24:15,499 - root - DEBUG - Parser pattern = $.[?[Expression(Fields('Cost') = '150')]]
+2023-04-14 16:24:18,120 - root - DEBUG - The data which want to parser = {'ProductID': 1, 'Product_Name': 'Parle G', 'Cost': 100}
+2023-04-14 16:24:46,376 - root - DEBUG - Show value of filter with the data: {'ProductID': 2, 'Product_Name': 'Maggie', 'Cost': 112}
+2023-04-14 16:24:46,560 - root - DEBUG - Parser pattern = $.[?[Expression(Fields('Cost') = '150')]]
+2023-04-14 16:24:46,560 - root - DEBUG - The data which want to parser = {'ProductID': 2, 'Product_Name': 'Maggie', 'Cost': 112}
+2023-04-14 16:24:51,178 - root - DEBUG - Show value of filter with the data: {'ProductID': 3, 'Product_Name': 'GoodDay Biscuit', 'Cost': 150}
+2023-04-14 16:24:51,617 - root - DEBUG - Parser pattern = $.[?[Expression(Fields('Cost') = '150')]]
+2023-04-14 16:24:51,618 - root - DEBUG - The data which want to parser = {'ProductID': 3, 'Product_Name': 'GoodDay Biscuit', 'Cost': 150}
+2023-04-14 16:25:07,292 - root - DEBUG - Show value of filter with the data: {'ProductID': 4, 'Product_Name': 'GoodDay Biscuit 3', 'Cost': 150}
+2023-04-14 16:25:15,519 - root - DEBUG - Parser pattern = $.[?[Expression(Fields('Cost') = '150')]]
+2023-04-14 16:25:16,530 - root - DEBUG - The data which want to parser = {'ProductID': 4, 'Product_Name': 'GoodDay Biscuit 3', 'Cost': 150}
+2023-04-14 16:27:01,368 - root - DEBUG - Info Config {'id': '642fe645ae925cc0c2cd5302', 'name': 'sample_data_energy', 'jobId': '642fe661ae925cc0c2cd5303', 'jobTaskId': '642fe661ae925cc0c2cd5304', 'build_operation': {'ops': {'filter': [{'__comment': 'specification of an op, specific to op', 'at': '$', 'where': {'field': 'Cost', 'operator': '=', 'value': 150}}]}}, 'userId': '642664152a9ea736837171b4', 'is_enabled': True, 'image': 'etl-modules', 'version': 'latest', 'source': {'id': '642fd392f289a3aa36f9642c', 'type': 'MySQL', 'name': 'hieu_mysql_machine', 'host': '192.168.10.21', 'port': '3306', 'user': 'root', 'password': 'root', 'database': 'databiz_demo', 'schema': {'table': 'Products', 'select': ['ProductID', 'Product_Name', 'Cost']}}, 'destinations': [{'id': '642fd392f289a3aa36f9642c', 'type': 'MySQL', 'name': 'hieu_mysql_machine', 'host': '192.168.10.21', 'port': '3306', 'user': 'root', 'password': 'root', 'database': 'databiz_demo', 'schema': {'create_tables': ['DROP TABLE IF EXISTS `product_des`; CREATE TABLE `product_des` (`id` int NOT NULL AUTO_INCREMENT, ProductID varchar(220) NULL, Product_Name varchar(220) NULL, Cost varchar(220) NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB'], 'sink_to': 'product_des', 'select': ['ProductID', 'Product_Name', 'Cost']}}, {'type': 'logfile', 'name': 'Logfile', 'schema': {'filename': '642fe661ae925cc0c2cd5304.log', 'logpath': '/dataconfig/sample_data_energy_642fe645ae925cc0c2cd5302/logs'}}]}
+2023-04-14 16:27:01,368 - root - DEBUG - Location to load plugins = /home/cabar/datapeach/ETLService/src
+2023-04-14 16:27:01,397 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.filter_operator
+2023-04-14 16:27:01,397 - plugin.discovery - DEBUG - found plugin spec in module_loader.operator_plugins.filter_operator:MatchPlugin PluginSpec(operator.filter = <class 'module_loader.operator_plugins.filter_operator.MatchPlugin'>)
+2023-04-14 16:27:01,397 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins
+2023-04-14 16:27:01,398 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.pd_combine_operator
+2023-04-14 16:27:01,398 - plugin.discovery - DEBUG - found plugin spec in module_loader.operator_plugins.pd_combine_operator:PDCombinePlugin PluginSpec(operator.pd_combine = <class 'module_loader.operator_plugins.pd_combine_operator.PDCombinePlugin'>)
+2023-04-14 16:27:01,398 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.test_operator
+2023-04-14 16:27:01,439 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.enrichment_operator
+2023-04-14 16:27:01,439 - plugin.discovery - DEBUG - found plugin spec in module_loader.operator_plugins.enrichment_operator:EnrichmentPlugin PluginSpec(operator.enrich_temp = <class 'module_loader.operator_plugins.enrichment_operator.EnrichmentPlugin'>)
+2023-04-14 16:27:01,704 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.pd_enrich_operator
+2023-04-14 16:27:01,704 - plugin.discovery - DEBUG - found plugin spec in module_loader.operator_plugins.pd_enrich_operator:PDEnrichPlugin PluginSpec(operator.pd_match1 = <class 'module_loader.operator_plugins.pd_enrich_operator.PDEnrichPlugin'>)
+2023-04-14 16:27:01,705 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.enrich_operator
+2023-04-14 16:27:01,705 - plugin.discovery - DEBUG - found plugin spec in module_loader.operator_plugins.enrich_operator:PDCombinePlugin PluginSpec(operator.enrich = <class 'module_loader.operator_plugins.enrich_operator.PDCombinePlugin'>)
+2023-04-14 16:27:01,706 - plugin.discovery - DEBUG - scanning module module_loader.source_plugins
+2023-04-14 16:27:01,723 - plugin.discovery - DEBUG - scanning module module_loader.source_plugins.pulsar_handler
+2023-04-14 16:27:01,723 - plugin.discovery - DEBUG - found plugin spec in module_loader.source_plugins.pulsar_handler:PulsarPlugin PluginSpec(source.pulsar = <class 'module_loader.source_plugins.pulsar_handler.PulsarPlugin'>)
+2023-04-14 16:27:01,840 - plugin.discovery - DEBUG - scanning module module_loader.source_plugins.mysql_handler
+2023-04-14 16:27:01,840 - plugin.discovery - DEBUG - found plugin spec in module_loader.source_plugins.mysql_handler:SourceMysqlPlugin PluginSpec(source.mysql = <class 'module_loader.source_plugins.mysql_handler.SourceMysqlPlugin'>)
+2023-04-14 16:27:03,157 - plugin.discovery - DEBUG - scanning module module_loader.sink_plugins.mysql_handler
+2023-04-14 16:27:03,157 - plugin.discovery - DEBUG - found plugin spec in module_loader.sink_plugins.mysql_handler:MysqlPlugin PluginSpec(sink.mysql = <class 'module_loader.sink_plugins.mysql_handler.MysqlPlugin'>)
+2023-04-14 16:27:03,158 - plugin.discovery - DEBUG - scanning module module_loader.sink_plugins
+2023-04-14 16:27:03,158 - plugin.discovery - DEBUG - scanning module module_loader.sink_plugins.oracle_handler
+2023-04-14 16:27:03,159 - plugin.discovery - DEBUG - found plugin spec in module_loader.sink_plugins.oracle_handler:OraclePlugin PluginSpec(sink.oracle = <class 'module_loader.sink_plugins.oracle_handler.OraclePlugin'>)
+2023-04-14 16:27:03,159 - plugin.discovery - DEBUG - scanning module module_loader.sink_plugins.logfile_handler
+2023-04-14 16:27:03,159 - plugin.discovery - DEBUG - found plugin spec in module_loader.sink_plugins.logfile_handler:LogFilePlugin PluginSpec(sink.logfile = <class 'module_loader.sink_plugins.logfile_handler.LogFilePlugin'>)
+2023-04-14 16:27:05,388 - root - DEBUG - Run table script successfully: ['DROP TABLE IF EXISTS `product_des`; CREATE TABLE `product_des` (`id` int NOT NULL AUTO_INCREMENT, ProductID varchar(220) NULL, Product_Name varchar(220) NULL, Cost varchar(220) NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB']
+2023-04-14 16:27:07,709 - root - DEBUG - op=filter: at=$, where=Cost ==> = ==> 150
+2023-04-14 16:27:07,709 - root - DEBUG - $[?(Cost="150")]
+2023-04-14 16:27:15,613 - root - DEBUG - Show value of filter with the data: {'ProductID': 1, 'Product_Name': 'Parle G', 'Cost': 100}
+2023-04-14 16:27:15,839 - root - DEBUG - Parser pattern = $.[?[Expression(Fields('Cost') = '150')]]
+2023-04-14 16:27:15,839 - root - DEBUG - The data which want to parser = {'ProductID': 1, 'Product_Name': 'Parle G', 'Cost': 100}
+2023-04-14 16:27:27,057 - root - DEBUG - Show value of filter with the data: {'ProductID': 2, 'Product_Name': 'Maggie', 'Cost': 112}
+2023-04-14 16:27:27,057 - root - DEBUG - Parser pattern = $.[?[Expression(Fields('Cost') = '150')]]
+2023-04-14 16:27:27,057 - root - DEBUG - The data which want to parser = {'ProductID': 2, 'Product_Name': 'Maggie', 'Cost': 112}
+2023-04-14 16:27:36,123 - root - DEBUG - Show value of filter with the data: {'ProductID': 3, 'Product_Name': 'GoodDay Biscuit', 'Cost': 150}
+2023-04-14 16:27:38,331 - root - DEBUG - Parser pattern = $.[?[Expression(Fields('Cost') = '150')]]
+2023-04-14 16:27:39,342 - root - DEBUG - The data which want to parser = {'ProductID': 3, 'Product_Name': 'GoodDay Biscuit', 'Cost': 150}
+2023-04-14 16:29:13,135 - root - DEBUG - Info Config {'id': '642fe645ae925cc0c2cd5302', 'name': 'sample_data_energy', 'jobId': '642fe661ae925cc0c2cd5303', 'jobTaskId': '642fe661ae925cc0c2cd5304', 'build_operation': {'ops': {'filter': [{'__comment': 'specification of an op, specific to op', 'at': '$', 'where': {'field': 'Product_Name', 'operator': '=', 'value': 'Maggie'}}]}}, 'userId': '642664152a9ea736837171b4', 'is_enabled': True, 'image': 'etl-modules', 'version': 'latest', 'source': {'id': '642fd392f289a3aa36f9642c', 'type': 'MySQL', 'name': 'hieu_mysql_machine', 'host': '192.168.10.21', 'port': '3306', 'user': 'root', 'password': 'root', 'database': 'databiz_demo', 'schema': {'table': 'Products', 'select': ['ProductID', 'Product_Name', 'Cost']}}, 'destinations': [{'id': '642fd392f289a3aa36f9642c', 'type': 'MySQL', 'name': 'hieu_mysql_machine', 'host': '192.168.10.21', 'port': '3306', 'user': 'root', 'password': 'root', 'database': 'databiz_demo', 'schema': {'create_tables': ['DROP TABLE IF EXISTS `product_des`; CREATE TABLE `product_des` (`id` int NOT NULL AUTO_INCREMENT, ProductID varchar(220) NULL, Product_Name varchar(220) NULL, Cost varchar(220) NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB'], 'sink_to': 'product_des', 'select': ['ProductID', 'Product_Name', 'Cost']}}, {'type': 'logfile', 'name': 'Logfile', 'schema': {'filename': '642fe661ae925cc0c2cd5304.log', 'logpath': '/dataconfig/sample_data_energy_642fe645ae925cc0c2cd5302/logs'}}]}
+2023-04-14 16:29:13,135 - root - DEBUG - Location to load plugins = /home/cabar/datapeach/ETLService/src
+2023-04-14 16:29:13,194 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.enrichment_operator
+2023-04-14 16:29:13,194 - plugin.discovery - DEBUG - found plugin spec in module_loader.operator_plugins.enrichment_operator:EnrichmentPlugin PluginSpec(operator.enrich_temp = <class 'module_loader.operator_plugins.enrichment_operator.EnrichmentPlugin'>)
+2023-04-14 16:29:13,195 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.enrich_operator
+2023-04-14 16:29:13,195 - plugin.discovery - DEBUG - found plugin spec in module_loader.operator_plugins.enrich_operator:PDCombinePlugin PluginSpec(operator.enrich = <class 'module_loader.operator_plugins.enrich_operator.PDCombinePlugin'>)
+2023-04-14 16:29:13,502 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.pd_enrich_operator
+2023-04-14 16:29:13,503 - plugin.discovery - DEBUG - found plugin spec in module_loader.operator_plugins.pd_enrich_operator:PDEnrichPlugin PluginSpec(operator.pd_match1 = <class 'module_loader.operator_plugins.pd_enrich_operator.PDEnrichPlugin'>)
+2023-04-14 16:29:13,503 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.filter_operator
+2023-04-14 16:29:13,503 - plugin.discovery - DEBUG - found plugin spec in module_loader.operator_plugins.filter_operator:MatchPlugin PluginSpec(operator.filter = <class 'module_loader.operator_plugins.filter_operator.MatchPlugin'>)
+2023-04-14 16:29:13,503 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.test_operator
+2023-04-14 16:29:13,504 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins
+2023-04-14 16:29:13,504 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.pd_combine_operator
+2023-04-14 16:29:13,504 - plugin.discovery - DEBUG - found plugin spec in module_loader.operator_plugins.pd_combine_operator:PDCombinePlugin PluginSpec(operator.pd_combine = <class 'module_loader.operator_plugins.pd_combine_operator.PDCombinePlugin'>)
+2023-04-14 16:29:13,622 - plugin.discovery - DEBUG - scanning module module_loader.source_plugins.mysql_handler
+2023-04-14 16:29:13,622 - plugin.discovery - DEBUG - found plugin spec in module_loader.source_plugins.mysql_handler:SourceMysqlPlugin PluginSpec(source.mysql = <class 'module_loader.source_plugins.mysql_handler.SourceMysqlPlugin'>)
+2023-04-14 16:29:13,638 - plugin.discovery - DEBUG - scanning module module_loader.source_plugins.pulsar_handler
+2023-04-14 16:29:13,639 - plugin.discovery - DEBUG - found plugin spec in module_loader.source_plugins.pulsar_handler:PulsarPlugin PluginSpec(source.pulsar = <class 'module_loader.source_plugins.pulsar_handler.PulsarPlugin'>)
+2023-04-14 16:29:13,639 - plugin.discovery - DEBUG - scanning module module_loader.source_plugins
+2023-04-14 16:29:13,640 - plugin.discovery - DEBUG - scanning module module_loader.sink_plugins
+2023-04-14 16:29:13,640 - plugin.discovery - DEBUG - scanning module module_loader.sink_plugins.oracle_handler
+2023-04-14 16:29:13,641 - plugin.discovery - DEBUG - found plugin spec in module_loader.sink_plugins.oracle_handler:OraclePlugin PluginSpec(sink.oracle = <class 'module_loader.sink_plugins.oracle_handler.OraclePlugin'>)
+2023-04-14 16:29:13,641 - plugin.discovery - DEBUG - scanning module module_loader.sink_plugins.logfile_handler
+2023-04-14 16:29:13,641 - plugin.discovery - DEBUG - found plugin spec in module_loader.sink_plugins.logfile_handler:LogFilePlugin PluginSpec(sink.logfile = <class 'module_loader.sink_plugins.logfile_handler.LogFilePlugin'>)
+2023-04-14 16:29:15,192 - plugin.discovery - DEBUG - scanning module module_loader.sink_plugins.mysql_handler
+2023-04-14 16:29:15,192 - plugin.discovery - DEBUG - found plugin spec in module_loader.sink_plugins.mysql_handler:MysqlPlugin PluginSpec(sink.mysql = <class 'module_loader.sink_plugins.mysql_handler.MysqlPlugin'>)
+2023-04-14 16:29:17,832 - root - DEBUG - Run table script successfully: ['DROP TABLE IF EXISTS `product_des`; CREATE TABLE `product_des` (`id` int NOT NULL AUTO_INCREMENT, ProductID varchar(220) NULL, Product_Name varchar(220) NULL, Cost varchar(220) NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB']
+2023-04-14 16:29:19,651 - root - DEBUG - op=filter: at=$, where=Product_Name ==> = ==> Maggie
+2023-04-14 16:29:19,651 - root - DEBUG - $[?(Product_Name="Maggie")]
+2023-04-14 16:29:23,937 - root - DEBUG - Show value of filter with the data: {'ProductID': 1, 'Product_Name': 'Parle G', 'Cost': 100}
+2023-04-14 16:29:23,937 - root - DEBUG - Parser pattern = $.[?[Expression(Fields('Product_Name') = 'Maggie')]]
+2023-04-14 16:29:23,937 - root - DEBUG - The data which want to parser = {'ProductID': 1, 'Product_Name': 'Parle G', 'Cost': 100}
+2023-04-14 16:29:36,196 - root - DEBUG - Show value of filter with the data: {'ProductID': 2, 'Product_Name': 'Maggie', 'Cost': 112}
+2023-04-14 16:30:08,364 - root - DEBUG - Parser pattern = $.[?[Expression(Fields('Product_Name') = 'Maggie')]]
+2023-04-14 16:30:10,550 - root - DEBUG - The data which want to parser = {'ProductID': 2, 'Product_Name': 'Maggie', 'Cost': 112}
+2023-04-14 16:30:37,393 - root - DEBUG - The data after filter = {'ProductID': 2, 'Product_Name': 'Maggie', 'Cost': 112}
+2023-04-14 16:30:39,765 - root - INFO - Sink the data to destination MySQL: {'ProductID': 2, 'Product_Name': 'Maggie', 'Cost': 112} 
+2023-04-14 16:30:39,765 - root - ERROR - There is a error when sink data = MySQL Connection not available.
+2023-04-14 16:30:39,765 - root - INFO - Sink the data to destination Logfile: {'ProductID': 2, 'Product_Name': 'Maggie', 'Cost': 112} 
+2023-04-14 16:30:39,765 - root - ERROR - Cannot sink data {'ProductID': 2, 'Product_Name': 'Maggie', 'Cost': 112} to log file: [Errno 2] No such file or directory: '/dataconfig/sample_data_energy_642fe645ae925cc0c2cd5302/logs/642fe661ae925cc0c2cd5304.log'
+2023-04-14 16:30:44,298 - root - DEBUG - Show value of filter with the data: {'ProductID': 3, 'Product_Name': 'GoodDay Biscuit', 'Cost': 150}
+2023-04-14 16:30:44,299 - root - DEBUG - Parser pattern = $.[?[Expression(Fields('Product_Name') = 'Maggie')]]
+2023-04-14 16:30:44,299 - root - DEBUG - The data which want to parser = {'ProductID': 3, 'Product_Name': 'GoodDay Biscuit', 'Cost': 150}
+2023-04-14 16:30:50,055 - root - DEBUG - Show value of filter with the data: {'ProductID': 4, 'Product_Name': 'GoodDay Biscuit 3', 'Cost': 150}
+2023-04-14 16:30:50,055 - root - DEBUG - Parser pattern = $.[?[Expression(Fields('Product_Name') = 'Maggie')]]
+2023-04-14 16:30:50,055 - root - DEBUG - The data which want to parser = {'ProductID': 4, 'Product_Name': 'GoodDay Biscuit 3', 'Cost': 150}
+2023-04-14 16:31:52,124 - root - DEBUG - Info Config {'id': '642fe645ae925cc0c2cd5302', 'name': 'sample_data_energy', 'jobId': '642fe661ae925cc0c2cd5303', 'jobTaskId': '642fe661ae925cc0c2cd5304', 'build_operation': {'ops': {'filter': [{'__comment': 'specification of an op, specific to op', 'at': '$', 'where': {'field': 'Product_Name', 'operator': '=', 'value': 'Maggie'}}]}}, 'userId': '642664152a9ea736837171b4', 'is_enabled': True, 'image': 'etl-modules', 'version': 'latest', 'source': {'id': '642fd392f289a3aa36f9642c', 'type': 'MySQL', 'name': 'hieu_mysql_machine', 'host': '192.168.10.21', 'port': '3306', 'user': 'root', 'password': 'root', 'database': 'databiz_demo', 'schema': {'table': 'Products', 'select': ['ProductID', 'Product_Name', 'Cost']}}, 'destinations': [{'id': '642fd392f289a3aa36f9642c', 'type': 'MySQL', 'name': 'hieu_mysql_machine', 'host': '192.168.10.21', 'port': '3306', 'user': 'root', 'password': 'root', 'database': 'databiz_demo', 'schema': {'create_tables': ['DROP TABLE IF EXISTS `product_des`; CREATE TABLE `product_des` (`id` int NOT NULL AUTO_INCREMENT, ProductID varchar(220) NULL, Product_Name varchar(220) NULL, Cost varchar(220) NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB'], 'sink_to': 'product_des', 'select': ['ProductID', 'Product_Name', 'Cost']}}, {'type': 'logfile', 'name': 'Logfile', 'schema': {'filename': '642fe661ae925cc0c2cd5304.log', 'logpath': '/dataconfig/sample_data_energy_642fe645ae925cc0c2cd5302/logs'}}]}
+2023-04-14 16:31:52,125 - root - DEBUG - Location to load plugins = /home/cabar/datapeach/ETLService/src
+2023-04-14 16:31:52,147 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins
+2023-04-14 16:31:52,148 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.pd_combine_operator
+2023-04-14 16:31:52,148 - plugin.discovery - DEBUG - found plugin spec in module_loader.operator_plugins.pd_combine_operator:PDCombinePlugin PluginSpec(operator.pd_combine = <class 'module_loader.operator_plugins.pd_combine_operator.PDCombinePlugin'>)
+2023-04-14 16:31:52,148 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.test_operator
+2023-04-14 16:31:52,149 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.enrich_operator
+2023-04-14 16:31:52,149 - plugin.discovery - DEBUG - found plugin spec in module_loader.operator_plugins.enrich_operator:PDCombinePlugin PluginSpec(operator.enrich = <class 'module_loader.operator_plugins.enrich_operator.PDCombinePlugin'>)
+2023-04-14 16:31:52,435 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.pd_enrich_operator
+2023-04-14 16:31:52,435 - plugin.discovery - DEBUG - found plugin spec in module_loader.operator_plugins.pd_enrich_operator:PDEnrichPlugin PluginSpec(operator.pd_match1 = <class 'module_loader.operator_plugins.pd_enrich_operator.PDEnrichPlugin'>)
+2023-04-14 16:31:52,465 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.enrichment_operator
+2023-04-14 16:31:52,465 - plugin.discovery - DEBUG - found plugin spec in module_loader.operator_plugins.enrichment_operator:EnrichmentPlugin PluginSpec(operator.enrich_temp = <class 'module_loader.operator_plugins.enrichment_operator.EnrichmentPlugin'>)
+2023-04-14 16:31:52,466 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.filter_operator
+2023-04-14 16:31:52,466 - plugin.discovery - DEBUG - found plugin spec in module_loader.operator_plugins.filter_operator:MatchPlugin PluginSpec(operator.filter = <class 'module_loader.operator_plugins.filter_operator.MatchPlugin'>)
+2023-04-14 16:31:52,467 - plugin.discovery - DEBUG - scanning module module_loader.source_plugins
+2023-04-14 16:31:52,583 - plugin.discovery - DEBUG - scanning module module_loader.source_plugins.mysql_handler
+2023-04-14 16:31:52,584 - plugin.discovery - DEBUG - found plugin spec in module_loader.source_plugins.mysql_handler:SourceMysqlPlugin PluginSpec(source.mysql = <class 'module_loader.source_plugins.mysql_handler.SourceMysqlPlugin'>)
+2023-04-14 16:31:52,601 - plugin.discovery - DEBUG - scanning module module_loader.source_plugins.pulsar_handler
+2023-04-14 16:31:52,601 - plugin.discovery - DEBUG - found plugin spec in module_loader.source_plugins.pulsar_handler:PulsarPlugin PluginSpec(source.pulsar = <class 'module_loader.source_plugins.pulsar_handler.PulsarPlugin'>)
+2023-04-14 16:31:52,602 - plugin.discovery - DEBUG - scanning module module_loader.sink_plugins
+2023-04-14 16:31:52,602 - plugin.discovery - DEBUG - scanning module module_loader.sink_plugins.logfile_handler
+2023-04-14 16:31:52,603 - plugin.discovery - DEBUG - found plugin spec in module_loader.sink_plugins.logfile_handler:LogFilePlugin PluginSpec(sink.logfile = <class 'module_loader.sink_plugins.logfile_handler.LogFilePlugin'>)
+2023-04-14 16:31:52,603 - plugin.discovery - DEBUG - scanning module module_loader.sink_plugins.oracle_handler
+2023-04-14 16:31:52,603 - plugin.discovery - DEBUG - found plugin spec in module_loader.sink_plugins.oracle_handler:OraclePlugin PluginSpec(sink.oracle = <class 'module_loader.sink_plugins.oracle_handler.OraclePlugin'>)
+2023-04-14 16:31:53,716 - plugin.discovery - DEBUG - scanning module module_loader.sink_plugins.mysql_handler
+2023-04-14 16:31:53,717 - plugin.discovery - DEBUG - found plugin spec in module_loader.sink_plugins.mysql_handler:MysqlPlugin PluginSpec(sink.mysql = <class 'module_loader.sink_plugins.mysql_handler.MysqlPlugin'>)
+2023-04-14 16:31:58,050 - root - DEBUG - Run table script successfully: ['DROP TABLE IF EXISTS `product_des`; CREATE TABLE `product_des` (`id` int NOT NULL AUTO_INCREMENT, ProductID varchar(220) NULL, Product_Name varchar(220) NULL, Cost varchar(220) NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB']
+2023-04-14 16:32:02,888 - root - DEBUG - op=filter: at=$, where=Product_Name ==> = ==> Maggie
+2023-04-14 16:32:02,889 - root - DEBUG - $[?(Product_Name="Maggie")]
+2023-04-14 16:32:20,018 - root - DEBUG - Show value of filter with the data: {'ProductID': 1, 'Product_Name': 'Parle G', 'Cost': 100}
+2023-04-14 16:32:20,019 - root - DEBUG - Parser pattern = $.[?[Expression(Fields('Product_Name') = 'Maggie')]]
+2023-04-14 16:32:20,019 - root - DEBUG - The data which want to parser = {'ProductID': 1, 'Product_Name': 'Parle G', 'Cost': 100}
+2023-04-14 16:32:23,857 - root - DEBUG - Show value of filter with the data: {'ProductID': 2, 'Product_Name': 'Maggie', 'Cost': 112}
+2023-04-14 16:32:23,857 - root - DEBUG - Parser pattern = $.[?[Expression(Fields('Product_Name') = 'Maggie')]]
+2023-04-14 16:32:23,857 - root - DEBUG - The data which want to parser = {'ProductID': 2, 'Product_Name': 'Maggie', 'Cost': 112}
+2023-04-14 16:32:23,857 - root - DEBUG - The data after filter = {'ProductID': 2, 'Product_Name': 'Maggie', 'Cost': 112}
+2023-04-14 16:32:31,658 - root - INFO - Sink the data to destination MySQL: {'ProductID': 2, 'Product_Name': 'Maggie', 'Cost': 112} 
+2023-04-14 16:34:33,632 - root - DEBUG - Info Config {'id': '642fe645ae925cc0c2cd5302', 'name': 'sample_data_energy', 'jobId': '642fe661ae925cc0c2cd5303', 'jobTaskId': '642fe661ae925cc0c2cd5304', 'build_operation': {'ops': {'filter': [{'__comment': 'specification of an op, specific to op', 'at': '$', 'where': {'field': 'Product_Name', 'operator': '=', 'value': 'Maggie'}}]}}, 'userId': '642664152a9ea736837171b4', 'is_enabled': True, 'image': 'etl-modules', 'version': 'latest', 'source': {'id': '642fd392f289a3aa36f9642c', 'type': 'MySQL', 'name': 'hieu_mysql_machine', 'host': '192.168.10.21', 'port': '3306', 'user': 'root', 'password': 'root', 'database': 'databiz_demo', 'schema': {'table': 'Products', 'select': ['ProductID', 'Product_Name', 'Cost']}}, 'destinations': [{'id': '642fd392f289a3aa36f9642c', 'type': 'MySQL', 'name': 'hieu_mysql_machine', 'host': '192.168.10.21', 'port': '3306', 'user': 'root', 'password': 'root', 'database': 'databiz_demo', 'schema': {'create_tables': ['DROP TABLE IF EXISTS `product_des`; CREATE TABLE `product_des` (`id` int NOT NULL AUTO_INCREMENT, ProductID varchar(220) NULL, Product_Name varchar(220) NULL, Cost varchar(220) NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB'], 'sink_to': 'product_des', 'select': ['ProductID', 'Product_Name', 'Cost']}}, {'type': 'logfile', 'name': 'Logfile', 'schema': {'filename': '642fe661ae925cc0c2cd5304.log', 'logpath': '/dataconfig/sample_data_energy_642fe645ae925cc0c2cd5302/logs'}}]}
+2023-04-14 16:34:33,632 - root - DEBUG - Location to load plugins = /home/cabar/datapeach/ETLService/src
+2023-04-14 16:34:33,655 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.enrich_operator
+2023-04-14 16:34:33,655 - plugin.discovery - DEBUG - found plugin spec in module_loader.operator_plugins.enrich_operator:PDCombinePlugin PluginSpec(operator.enrich = <class 'module_loader.operator_plugins.enrich_operator.PDCombinePlugin'>)
+2023-04-14 16:34:33,655 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins
+2023-04-14 16:34:33,662 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.filter_operator
+2023-04-14 16:34:33,663 - plugin.discovery - DEBUG - found plugin spec in module_loader.operator_plugins.filter_operator:MatchPlugin PluginSpec(operator.filter = <class 'module_loader.operator_plugins.filter_operator.MatchPlugin'>)
+2023-04-14 16:34:33,663 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.pd_combine_operator
+2023-04-14 16:34:33,663 - plugin.discovery - DEBUG - found plugin spec in module_loader.operator_plugins.pd_combine_operator:PDCombinePlugin PluginSpec(operator.pd_combine = <class 'module_loader.operator_plugins.pd_combine_operator.PDCombinePlugin'>)
+2023-04-14 16:34:33,951 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.pd_enrich_operator
+2023-04-14 16:34:33,951 - plugin.discovery - DEBUG - found plugin spec in module_loader.operator_plugins.pd_enrich_operator:PDEnrichPlugin PluginSpec(operator.pd_match1 = <class 'module_loader.operator_plugins.pd_enrich_operator.PDEnrichPlugin'>)
+2023-04-14 16:34:33,952 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.test_operator
+2023-04-14 16:34:33,983 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.enrichment_operator
+2023-04-14 16:34:33,983 - plugin.discovery - DEBUG - found plugin spec in module_loader.operator_plugins.enrichment_operator:EnrichmentPlugin PluginSpec(operator.enrich_temp = <class 'module_loader.operator_plugins.enrichment_operator.EnrichmentPlugin'>)
+2023-04-14 16:34:34,003 - plugin.discovery - DEBUG - scanning module module_loader.source_plugins.pulsar_handler
+2023-04-14 16:34:34,003 - plugin.discovery - DEBUG - found plugin spec in module_loader.source_plugins.pulsar_handler:PulsarPlugin PluginSpec(source.pulsar = <class 'module_loader.source_plugins.pulsar_handler.PulsarPlugin'>)
+2023-04-14 16:34:34,003 - plugin.discovery - DEBUG - scanning module module_loader.source_plugins
+2023-04-14 16:34:34,131 - plugin.discovery - DEBUG - scanning module module_loader.source_plugins.mysql_handler
+2023-04-14 16:34:34,131 - plugin.discovery - DEBUG - found plugin spec in module_loader.source_plugins.mysql_handler:SourceMysqlPlugin PluginSpec(source.mysql = <class 'module_loader.source_plugins.mysql_handler.SourceMysqlPlugin'>)
+2023-04-14 16:34:34,132 - plugin.discovery - DEBUG - scanning module module_loader.sink_plugins.logfile_handler
+2023-04-14 16:34:34,132 - plugin.discovery - DEBUG - found plugin spec in module_loader.sink_plugins.logfile_handler:LogFilePlugin PluginSpec(sink.logfile = <class 'module_loader.sink_plugins.logfile_handler.LogFilePlugin'>)
+2023-04-14 16:34:34,133 - plugin.discovery - DEBUG - scanning module module_loader.sink_plugins.oracle_handler
+2023-04-14 16:34:34,133 - plugin.discovery - DEBUG - found plugin spec in module_loader.sink_plugins.oracle_handler:OraclePlugin PluginSpec(sink.oracle = <class 'module_loader.sink_plugins.oracle_handler.OraclePlugin'>)
+2023-04-14 16:34:34,133 - plugin.discovery - DEBUG - scanning module module_loader.sink_plugins
+2023-04-14 16:34:35,143 - plugin.discovery - DEBUG - scanning module module_loader.sink_plugins.mysql_handler
+2023-04-14 16:34:35,143 - plugin.discovery - DEBUG - found plugin spec in module_loader.sink_plugins.mysql_handler:MysqlPlugin PluginSpec(sink.mysql = <class 'module_loader.sink_plugins.mysql_handler.MysqlPlugin'>)
+2023-04-14 16:34:38,840 - root - DEBUG - Run table script successfully: ['DROP TABLE IF EXISTS `product_des`; CREATE TABLE `product_des` (`id` int NOT NULL AUTO_INCREMENT, ProductID varchar(220) NULL, Product_Name varchar(220) NULL, Cost varchar(220) NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB']
+2023-04-14 16:34:41,884 - root - DEBUG - op=filter: at=$, where=Product_Name ==> = ==> Maggie
+2023-04-14 16:34:41,884 - root - DEBUG - $[?(Product_Name="Maggie")]
+2023-04-14 16:34:45,992 - root - DEBUG - Show value of filter with the data: {'ProductID': 1, 'Product_Name': 'Parle G', 'Cost': 100}
+2023-04-14 16:34:45,992 - root - DEBUG - Parser pattern = $.[?[Expression(Fields('Product_Name') = 'Maggie')]]
+2023-04-14 16:34:45,992 - root - DEBUG - The data which want to parser = {'ProductID': 1, 'Product_Name': 'Parle G', 'Cost': 100}
+2023-04-14 16:34:47,851 - root - DEBUG - Show value of filter with the data: {'ProductID': 2, 'Product_Name': 'Maggie', 'Cost': 112}
+2023-04-14 16:34:47,852 - root - DEBUG - Parser pattern = $.[?[Expression(Fields('Product_Name') = 'Maggie')]]
+2023-04-14 16:34:47,852 - root - DEBUG - The data which want to parser = {'ProductID': 2, 'Product_Name': 'Maggie', 'Cost': 112}
+2023-04-14 16:34:47,852 - root - DEBUG - The data after filter = {'ProductID': 2, 'Product_Name': 'Maggie', 'Cost': 112}
+2023-04-14 16:35:06,271 - root - INFO - Sink the data to destination MySQL: {'ProductID': 2, 'Product_Name': 'Maggie', 'Cost': 112} 
+2023-04-14 16:36:23,258 - root - DEBUG - Info Config {'id': '642fe645ae925cc0c2cd5302', 'name': 'sample_data_energy', 'jobId': '642fe661ae925cc0c2cd5303', 'jobTaskId': '642fe661ae925cc0c2cd5304', 'build_operation': {'ops': {'filter': [{'__comment': 'specification of an op, specific to op', 'at': '$', 'where': {'field': 'Product_Name', 'operator': '=', 'value': 'Maggie'}}]}}, 'userId': '642664152a9ea736837171b4', 'is_enabled': True, 'image': 'etl-modules', 'version': 'latest', 'source': {'id': '642fd392f289a3aa36f9642c', 'type': 'MySQL', 'name': 'hieu_mysql_machine', 'host': '192.168.10.21', 'port': '3306', 'user': 'root', 'password': 'root', 'database': 'databiz_demo', 'schema': {'table': 'Products', 'select': ['ProductID', 'Product_Name', 'Cost']}}, 'destinations': [{'id': '642fd392f289a3aa36f9642c', 'type': 'MySQL', 'name': 'hieu_mysql_machine', 'host': '192.168.10.21', 'port': '3306', 'user': 'root', 'password': 'root', 'database': 'databiz_demo', 'schema': {'create_tables': ['DROP TABLE IF EXISTS `product_des`; CREATE TABLE `product_des` (`id` int NOT NULL AUTO_INCREMENT, ProductID varchar(220) NULL, Product_Name varchar(220) NULL, Cost varchar(220) NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB'], 'sink_to': 'product_des', 'select': ['ProductID', 'Product_Name', 'Cost']}}, {'type': 'logfile', 'name': 'Logfile', 'schema': {'filename': '642fe661ae925cc0c2cd5304.log', 'logpath': '/dataconfig/sample_data_energy_642fe645ae925cc0c2cd5302/logs'}}]}
+2023-04-14 16:36:23,258 - root - DEBUG - Location to load plugins = /home/cabar/datapeach/ETLService/src
+2023-04-14 16:36:23,585 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.pd_enrich_operator
+2023-04-14 16:36:23,585 - plugin.discovery - DEBUG - found plugin spec in module_loader.operator_plugins.pd_enrich_operator:PDEnrichPlugin PluginSpec(operator.pd_match1 = <class 'module_loader.operator_plugins.pd_enrich_operator.PDEnrichPlugin'>)
+2023-04-14 16:36:23,585 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins
+2023-04-14 16:36:23,586 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.pd_combine_operator
+2023-04-14 16:36:23,586 - plugin.discovery - DEBUG - found plugin spec in module_loader.operator_plugins.pd_combine_operator:PDCombinePlugin PluginSpec(operator.pd_combine = <class 'module_loader.operator_plugins.pd_combine_operator.PDCombinePlugin'>)
+2023-04-14 16:36:23,586 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.test_operator
+2023-04-14 16:36:23,586 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.filter_operator
+2023-04-14 16:36:23,587 - plugin.discovery - DEBUG - found plugin spec in module_loader.operator_plugins.filter_operator:MatchPlugin PluginSpec(operator.filter = <class 'module_loader.operator_plugins.filter_operator.MatchPlugin'>)
+2023-04-14 16:36:23,587 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.enrich_operator
+2023-04-14 16:36:23,587 - plugin.discovery - DEBUG - found plugin spec in module_loader.operator_plugins.enrich_operator:PDCombinePlugin PluginSpec(operator.enrich = <class 'module_loader.operator_plugins.enrich_operator.PDCombinePlugin'>)
+2023-04-14 16:36:23,619 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.enrichment_operator
+2023-04-14 16:36:23,619 - plugin.discovery - DEBUG - found plugin spec in module_loader.operator_plugins.enrichment_operator:EnrichmentPlugin PluginSpec(operator.enrich_temp = <class 'module_loader.operator_plugins.enrichment_operator.EnrichmentPlugin'>)
+2023-04-14 16:36:23,621 - plugin.discovery - DEBUG - scanning module module_loader.source_plugins
+2023-04-14 16:36:23,744 - plugin.discovery - DEBUG - scanning module module_loader.source_plugins.mysql_handler
+2023-04-14 16:36:23,744 - plugin.discovery - DEBUG - found plugin spec in module_loader.source_plugins.mysql_handler:SourceMysqlPlugin PluginSpec(source.mysql = <class 'module_loader.source_plugins.mysql_handler.SourceMysqlPlugin'>)
+2023-04-14 16:36:23,763 - plugin.discovery - DEBUG - scanning module module_loader.source_plugins.pulsar_handler
+2023-04-14 16:36:23,763 - plugin.discovery - DEBUG - found plugin spec in module_loader.source_plugins.pulsar_handler:PulsarPlugin PluginSpec(source.pulsar = <class 'module_loader.source_plugins.pulsar_handler.PulsarPlugin'>)
+2023-04-14 16:36:23,765 - plugin.discovery - DEBUG - scanning module module_loader.sink_plugins.oracle_handler
+2023-04-14 16:36:23,765 - plugin.discovery - DEBUG - found plugin spec in module_loader.sink_plugins.oracle_handler:OraclePlugin PluginSpec(sink.oracle = <class 'module_loader.sink_plugins.oracle_handler.OraclePlugin'>)
+2023-04-14 16:36:23,765 - plugin.discovery - DEBUG - scanning module module_loader.sink_plugins
+2023-04-14 16:36:24,429 - plugin.discovery - DEBUG - scanning module module_loader.sink_plugins.mysql_handler
+2023-04-14 16:36:24,429 - plugin.discovery - DEBUG - found plugin spec in module_loader.sink_plugins.mysql_handler:MysqlPlugin PluginSpec(sink.mysql = <class 'module_loader.sink_plugins.mysql_handler.MysqlPlugin'>)
+2023-04-14 16:36:24,430 - plugin.discovery - DEBUG - scanning module module_loader.sink_plugins.logfile_handler
+2023-04-14 16:36:24,430 - plugin.discovery - DEBUG - found plugin spec in module_loader.sink_plugins.logfile_handler:LogFilePlugin PluginSpec(sink.logfile = <class 'module_loader.sink_plugins.logfile_handler.LogFilePlugin'>)
+2023-04-14 16:36:33,479 - root - DEBUG - Run table script successfully: ['DROP TABLE IF EXISTS `product_des`; CREATE TABLE `product_des` (`id` int NOT NULL AUTO_INCREMENT, ProductID varchar(220) NULL, Product_Name varchar(220) NULL, Cost varchar(220) NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB']
+2023-04-14 16:36:36,175 - root - DEBUG - op=filter: at=$, where=Product_Name ==> = ==> Maggie
+2023-04-14 16:36:36,175 - root - DEBUG - $[?(Product_Name="Maggie")]
+2023-04-14 16:36:39,492 - root - DEBUG - Show value of filter with the data: {'ProductID': 1, 'Product_Name': 'Parle G', 'Cost': 100}
+2023-04-14 16:36:39,492 - root - DEBUG - Parser pattern = $.[?[Expression(Fields('Product_Name') = 'Maggie')]]
+2023-04-14 16:36:39,492 - root - DEBUG - The data which want to parser = {'ProductID': 1, 'Product_Name': 'Parle G', 'Cost': 100}
+2023-04-14 16:36:41,514 - root - DEBUG - Show value of filter with the data: {'ProductID': 2, 'Product_Name': 'Maggie', 'Cost': 112}
+2023-04-14 16:36:41,515 - root - DEBUG - Parser pattern = $.[?[Expression(Fields('Product_Name') = 'Maggie')]]
+2023-04-14 16:36:41,515 - root - DEBUG - The data which want to parser = {'ProductID': 2, 'Product_Name': 'Maggie', 'Cost': 112}
+2023-04-14 16:36:41,515 - root - DEBUG - The data after filter = {'ProductID': 2, 'Product_Name': 'Maggie', 'Cost': 112}
+2023-04-14 16:36:50,223 - root - INFO - Sink the data to destination MySQL: {'ProductID': 2, 'Product_Name': 'Maggie', 'Cost': 112} 
+2023-04-14 16:45:08,007 - root - DEBUG - Info Config {'id': '642fe645ae925cc0c2cd5302', 'name': 'sample_data_energy', 'jobId': '642fe661ae925cc0c2cd5303', 'jobTaskId': '642fe661ae925cc0c2cd5304', 'build_operation': {'ops': {'filter': [{'__comment': 'specification of an op, specific to op', 'at': '$', 'where': {'field': 'Product_Name', 'operator': '=', 'value': 'Maggie'}}]}}, 'userId': '642664152a9ea736837171b4', 'is_enabled': True, 'image': 'etl-modules', 'version': 'latest', 'source': {'id': '642fd392f289a3aa36f9642c', 'type': 'MySQL', 'name': 'hieu_mysql_machine', 'host': '192.168.10.21', 'port': '3306', 'user': 'root', 'password': 'root', 'database': 'databiz_demo', 'schema': {'table': 'Products', 'select': ['ProductID', 'Product_Name', 'Cost']}}, 'destinations': [{'id': '642fd392f289a3aa36f9642c', 'type': 'MySQL', 'name': 'hieu_mysql_machine', 'host': '192.168.10.21', 'port': '3306', 'user': 'root', 'password': 'root', 'database': 'databiz_demo', 'schema': {'create_tables': ['DROP TABLE IF EXISTS `product_des`; CREATE TABLE `product_des` (`id` int NOT NULL AUTO_INCREMENT, ProductID varchar(220) NULL, Product_Name varchar(220) NULL, Cost varchar(220) NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB'], 'sink_to': 'product_des', 'select': ['ProductID', 'Product_Name', 'Cost']}}, {'type': 'logfile', 'name': 'Logfile', 'schema': {'filename': '642fe661ae925cc0c2cd5304.log', 'logpath': '/dataconfig/sample_data_energy_642fe645ae925cc0c2cd5302/logs'}}]}
+2023-04-14 16:45:08,007 - root - DEBUG - Location to load plugins = /home/cabar/datapeach/ETLService/src
+2023-04-14 16:45:08,030 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.enrich_operator
+2023-04-14 16:45:08,030 - plugin.discovery - DEBUG - found plugin spec in module_loader.operator_plugins.enrich_operator:PDCombinePlugin PluginSpec(operator.enrich = <class 'module_loader.operator_plugins.enrich_operator.PDCombinePlugin'>)
+2023-04-14 16:45:08,332 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.pd_enrich_operator
+2023-04-14 16:45:08,332 - plugin.discovery - DEBUG - found plugin spec in module_loader.operator_plugins.pd_enrich_operator:PDEnrichPlugin PluginSpec(operator.pd_match1 = <class 'module_loader.operator_plugins.pd_enrich_operator.PDEnrichPlugin'>)
+2023-04-14 16:45:08,333 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.pd_combine_operator
+2023-04-14 16:45:08,333 - plugin.discovery - DEBUG - found plugin spec in module_loader.operator_plugins.pd_combine_operator:PDCombinePlugin PluginSpec(operator.pd_combine = <class 'module_loader.operator_plugins.pd_combine_operator.PDCombinePlugin'>)
+2023-04-14 16:45:08,333 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins
+2023-04-14 16:45:08,364 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.enrichment_operator
+2023-04-14 16:45:08,364 - plugin.discovery - DEBUG - found plugin spec in module_loader.operator_plugins.enrichment_operator:EnrichmentPlugin PluginSpec(operator.enrich_temp = <class 'module_loader.operator_plugins.enrichment_operator.EnrichmentPlugin'>)
+2023-04-14 16:45:08,364 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.test_operator
+2023-04-14 16:45:08,365 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.filter_operator
+2023-04-14 16:45:08,365 - plugin.discovery - DEBUG - found plugin spec in module_loader.operator_plugins.filter_operator:MatchPlugin PluginSpec(operator.filter = <class 'module_loader.operator_plugins.filter_operator.MatchPlugin'>)
+2023-04-14 16:45:08,486 - plugin.discovery - DEBUG - scanning module module_loader.source_plugins.mysql_handler
+2023-04-14 16:45:08,486 - plugin.discovery - DEBUG - found plugin spec in module_loader.source_plugins.mysql_handler:SourceMysqlPlugin PluginSpec(source.mysql = <class 'module_loader.source_plugins.mysql_handler.SourceMysqlPlugin'>)
+2023-04-14 16:45:08,504 - plugin.discovery - DEBUG - scanning module module_loader.source_plugins.pulsar_handler
+2023-04-14 16:45:08,504 - plugin.discovery - DEBUG - found plugin spec in module_loader.source_plugins.pulsar_handler:PulsarPlugin PluginSpec(source.pulsar = <class 'module_loader.source_plugins.pulsar_handler.PulsarPlugin'>)
+2023-04-14 16:45:08,504 - plugin.discovery - DEBUG - scanning module module_loader.source_plugins
+2023-04-14 16:45:08,506 - plugin.discovery - DEBUG - scanning module module_loader.sink_plugins.oracle_handler
+2023-04-14 16:45:08,506 - plugin.discovery - DEBUG - found plugin spec in module_loader.sink_plugins.oracle_handler:OraclePlugin PluginSpec(sink.oracle = <class 'module_loader.sink_plugins.oracle_handler.OraclePlugin'>)
+2023-04-14 16:45:08,507 - plugin.discovery - DEBUG - scanning module module_loader.sink_plugins.mysql_handler
+2023-04-14 16:45:08,507 - plugin.discovery - DEBUG - found plugin spec in module_loader.sink_plugins.mysql_handler:MysqlPlugin PluginSpec(sink.mysql = <class 'module_loader.sink_plugins.mysql_handler.MysqlPlugin'>)
+2023-04-14 16:45:08,507 - plugin.discovery - DEBUG - scanning module module_loader.sink_plugins.logfile_handler
+2023-04-14 16:45:08,507 - plugin.discovery - DEBUG - found plugin spec in module_loader.sink_plugins.logfile_handler:LogFilePlugin PluginSpec(sink.logfile = <class 'module_loader.sink_plugins.logfile_handler.LogFilePlugin'>)
+2023-04-14 16:45:08,507 - plugin.discovery - DEBUG - scanning module module_loader.sink_plugins
+2023-04-14 16:45:11,181 - root - DEBUG - Run table script successfully: ['DROP TABLE IF EXISTS `product_des`; CREATE TABLE `product_des` (`id` int NOT NULL AUTO_INCREMENT, ProductID varchar(220) NULL, Product_Name varchar(220) NULL, Cost varchar(220) NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB']
+2023-04-14 16:45:14,265 - root - DEBUG - op=filter: at=$, where=Product_Name ==> = ==> Maggie
+2023-04-14 16:45:14,266 - root - DEBUG - $[?(Product_Name="Maggie")]
+2023-04-14 16:45:36,888 - root - INFO - Sink the data to destination MySQL: {'ProductID': 1, 'Product_Name': 'Parle G', 'Cost': 100} 
+2023-04-14 16:46:36,746 - root - DEBUG - Info Config {'id': '642fe645ae925cc0c2cd5302', 'name': 'sample_data_energy', 'jobId': '642fe661ae925cc0c2cd5303', 'jobTaskId': '642fe661ae925cc0c2cd5304', 'build_operation': {'ops': {'filter': [{'__comment': 'specification of an op, specific to op', 'at': '$', 'where': {'field': 'Product_Name', 'operator': '=', 'value': 'Maggie'}}]}}, 'userId': '642664152a9ea736837171b4', 'is_enabled': True, 'image': 'etl-modules', 'version': 'latest', 'source': {'id': '642fd392f289a3aa36f9642c', 'type': 'MySQL', 'name': 'hieu_mysql_machine', 'host': '192.168.10.21', 'port': '3306', 'user': 'root', 'password': 'root', 'database': 'databiz_demo', 'schema': {'table': 'Products', 'select': ['ProductID', 'Product_Name', 'Cost']}}, 'destinations': [{'id': '642fd392f289a3aa36f9642c', 'type': 'MySQL', 'name': 'hieu_mysql_machine', 'host': '192.168.10.21', 'port': '3306', 'user': 'root', 'password': 'root', 'database': 'databiz_demo', 'schema': {'create_tables': ['CREATE TABLE `product_des` (`id` int NOT NULL AUTO_INCREMENT, ProductID varchar(220) NULL, Product_Name varchar(220) NULL, Cost varchar(220) NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB'], 'sink_to': 'product_des', 'select': ['ProductID', 'Product_Name', 'Cost']}}, {'type': 'logfile', 'name': 'Logfile', 'schema': {'filename': '642fe661ae925cc0c2cd5304.log', 'logpath': '/dataconfig/sample_data_energy_642fe645ae925cc0c2cd5302/logs'}}]}
+2023-04-14 16:46:36,747 - root - DEBUG - Location to load plugins = /home/cabar/datapeach/ETLService/src
+2023-04-14 16:46:36,802 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.enrichment_operator
+2023-04-14 16:46:36,802 - plugin.discovery - DEBUG - found plugin spec in module_loader.operator_plugins.enrichment_operator:EnrichmentPlugin PluginSpec(operator.enrich_temp = <class 'module_loader.operator_plugins.enrichment_operator.EnrichmentPlugin'>)
+2023-04-14 16:46:36,803 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.test_operator
+2023-04-14 16:46:36,803 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.pd_combine_operator
+2023-04-14 16:46:36,803 - plugin.discovery - DEBUG - found plugin spec in module_loader.operator_plugins.pd_combine_operator:PDCombinePlugin PluginSpec(operator.pd_combine = <class 'module_loader.operator_plugins.pd_combine_operator.PDCombinePlugin'>)
+2023-04-14 16:46:36,818 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.filter_operator
+2023-04-14 16:46:36,818 - plugin.discovery - DEBUG - found plugin spec in module_loader.operator_plugins.filter_operator:MatchPlugin PluginSpec(operator.filter = <class 'module_loader.operator_plugins.filter_operator.MatchPlugin'>)
+2023-04-14 16:46:37,091 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.pd_enrich_operator
+2023-04-14 16:46:37,091 - plugin.discovery - DEBUG - found plugin spec in module_loader.operator_plugins.pd_enrich_operator:PDEnrichPlugin PluginSpec(operator.pd_match1 = <class 'module_loader.operator_plugins.pd_enrich_operator.PDEnrichPlugin'>)
+2023-04-14 16:46:37,091 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.enrich_operator
+2023-04-14 16:46:37,091 - plugin.discovery - DEBUG - found plugin spec in module_loader.operator_plugins.enrich_operator:PDCombinePlugin PluginSpec(operator.enrich = <class 'module_loader.operator_plugins.enrich_operator.PDCombinePlugin'>)
+2023-04-14 16:46:37,091 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins
+2023-04-14 16:46:37,109 - plugin.discovery - DEBUG - scanning module module_loader.source_plugins.pulsar_handler
+2023-04-14 16:46:37,109 - plugin.discovery - DEBUG - found plugin spec in module_loader.source_plugins.pulsar_handler:PulsarPlugin PluginSpec(source.pulsar = <class 'module_loader.source_plugins.pulsar_handler.PulsarPlugin'>)
+2023-04-14 16:46:37,110 - plugin.discovery - DEBUG - scanning module module_loader.source_plugins
+2023-04-14 16:46:37,222 - plugin.discovery - DEBUG - scanning module module_loader.source_plugins.mysql_handler
+2023-04-14 16:46:37,222 - plugin.discovery - DEBUG - found plugin spec in module_loader.source_plugins.mysql_handler:SourceMysqlPlugin PluginSpec(source.mysql = <class 'module_loader.source_plugins.mysql_handler.SourceMysqlPlugin'>)
+2023-04-14 16:46:37,223 - plugin.discovery - DEBUG - scanning module module_loader.sink_plugins.logfile_handler
+2023-04-14 16:46:37,223 - plugin.discovery - DEBUG - found plugin spec in module_loader.sink_plugins.logfile_handler:LogFilePlugin PluginSpec(sink.logfile = <class 'module_loader.sink_plugins.logfile_handler.LogFilePlugin'>)
+2023-04-14 16:46:37,224 - plugin.discovery - DEBUG - scanning module module_loader.sink_plugins.mysql_handler
+2023-04-14 16:46:37,224 - plugin.discovery - DEBUG - found plugin spec in module_loader.sink_plugins.mysql_handler:MysqlPlugin PluginSpec(sink.mysql = <class 'module_loader.sink_plugins.mysql_handler.MysqlPlugin'>)
+2023-04-14 16:46:37,224 - plugin.discovery - DEBUG - scanning module module_loader.sink_plugins.oracle_handler
+2023-04-14 16:46:37,224 - plugin.discovery - DEBUG - found plugin spec in module_loader.sink_plugins.oracle_handler:OraclePlugin PluginSpec(sink.oracle = <class 'module_loader.sink_plugins.oracle_handler.OraclePlugin'>)
+2023-04-14 16:46:37,224 - plugin.discovery - DEBUG - scanning module module_loader.sink_plugins
+2023-04-14 16:46:40,467 - root - DEBUG - Run table script successfully: ['CREATE TABLE `product_des` (`id` int NOT NULL AUTO_INCREMENT, ProductID varchar(220) NULL, Product_Name varchar(220) NULL, Cost varchar(220) NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB']
+2023-04-14 16:46:44,292 - root - DEBUG - op=filter: at=$, where=Product_Name ==> = ==> Maggie
+2023-04-14 16:46:44,293 - root - DEBUG - $[?(Product_Name="Maggie")]
+2023-04-14 16:46:56,624 - root - INFO - Sink the data to destination MySQL: {'ProductID': 1, 'Product_Name': 'Parle G', 'Cost': 100} 
+2023-04-14 16:48:31,878 - root - DEBUG - Info Config {'id': '642fe645ae925cc0c2cd5302', 'name': 'sample_data_energy', 'jobId': '642fe661ae925cc0c2cd5303', 'jobTaskId': '642fe661ae925cc0c2cd5304', 'build_operation': {'ops': {'filter': [{'__comment': 'specification of an op, specific to op', 'at': '$', 'where': {'field': 'Product_Name', 'operator': '=', 'value': 'Maggie'}}]}}, 'userId': '642664152a9ea736837171b4', 'is_enabled': True, 'image': 'etl-modules', 'version': 'latest', 'source': {'id': '642fd392f289a3aa36f9642c', 'type': 'MySQL', 'name': 'hieu_mysql_machine', 'host': '192.168.10.21', 'port': '3306', 'user': 'root', 'password': 'root', 'database': 'databiz_demo', 'schema': {'table': 'Products', 'select': ['ProductID', 'Product_Name', 'Cost']}}, 'destinations': [{'id': '642fd392f289a3aa36f9642c', 'type': 'MySQL', 'name': 'hieu_mysql_machine', 'host': '192.168.10.21', 'port': '3306', 'user': 'root', 'password': 'root', 'database': 'databiz_demo', 'schema': {'create_tables': ['CREATE TABLE `product_des` (`id` int NOT NULL AUTO_INCREMENT, ProductID varchar(220) NULL, Product_Name varchar(220) NULL, Cost varchar(220) NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB'], 'sink_to': 'product_des', 'select': ['ProductID', 'Product_Name', 'Cost']}}, {'type': 'logfile', 'name': 'Logfile', 'schema': {'filename': '642fe661ae925cc0c2cd5304.log', 'logpath': '/dataconfig/sample_data_energy_642fe645ae925cc0c2cd5302/logs'}}]}
+2023-04-14 16:48:31,878 - root - DEBUG - Location to load plugins = /home/cabar/datapeach/ETLService/src
+2023-04-14 16:48:31,901 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.pd_combine_operator
+2023-04-14 16:48:31,902 - plugin.discovery - DEBUG - found plugin spec in module_loader.operator_plugins.pd_combine_operator:PDCombinePlugin PluginSpec(operator.pd_combine = <class 'module_loader.operator_plugins.pd_combine_operator.PDCombinePlugin'>)
+2023-04-14 16:48:31,909 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.filter_operator
+2023-04-14 16:48:31,909 - plugin.discovery - DEBUG - found plugin spec in module_loader.operator_plugins.filter_operator:MatchPlugin PluginSpec(operator.filter = <class 'module_loader.operator_plugins.filter_operator.MatchPlugin'>)
+2023-04-14 16:48:31,909 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins
+2023-04-14 16:48:31,957 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.enrichment_operator
+2023-04-14 16:48:31,957 - plugin.discovery - DEBUG - found plugin spec in module_loader.operator_plugins.enrichment_operator:EnrichmentPlugin PluginSpec(operator.enrich_temp = <class 'module_loader.operator_plugins.enrichment_operator.EnrichmentPlugin'>)
+2023-04-14 16:48:31,958 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.enrich_operator
+2023-04-14 16:48:31,958 - plugin.discovery - DEBUG - found plugin spec in module_loader.operator_plugins.enrich_operator:PDCombinePlugin PluginSpec(operator.enrich = <class 'module_loader.operator_plugins.enrich_operator.PDCombinePlugin'>)
+2023-04-14 16:48:32,272 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.pd_enrich_operator
+2023-04-14 16:48:32,272 - plugin.discovery - DEBUG - found plugin spec in module_loader.operator_plugins.pd_enrich_operator:PDEnrichPlugin PluginSpec(operator.pd_match1 = <class 'module_loader.operator_plugins.pd_enrich_operator.PDEnrichPlugin'>)
+2023-04-14 16:48:32,273 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.test_operator
+2023-04-14 16:48:32,274 - plugin.discovery - DEBUG - scanning module module_loader.source_plugins
+2023-04-14 16:48:32,388 - plugin.discovery - DEBUG - scanning module module_loader.source_plugins.mysql_handler
+2023-04-14 16:48:32,388 - plugin.discovery - DEBUG - found plugin spec in module_loader.source_plugins.mysql_handler:SourceMysqlPlugin PluginSpec(source.mysql = <class 'module_loader.source_plugins.mysql_handler.SourceMysqlPlugin'>)
+2023-04-14 16:48:32,405 - plugin.discovery - DEBUG - scanning module module_loader.source_plugins.pulsar_handler
+2023-04-14 16:48:32,406 - plugin.discovery - DEBUG - found plugin spec in module_loader.source_plugins.pulsar_handler:PulsarPlugin PluginSpec(source.pulsar = <class 'module_loader.source_plugins.pulsar_handler.PulsarPlugin'>)
+2023-04-14 16:48:32,407 - plugin.discovery - DEBUG - scanning module module_loader.sink_plugins.mysql_handler
+2023-04-14 16:48:32,407 - plugin.discovery - DEBUG - found plugin spec in module_loader.sink_plugins.mysql_handler:MysqlPlugin PluginSpec(sink.mysql = <class 'module_loader.sink_plugins.mysql_handler.MysqlPlugin'>)
+2023-04-14 16:48:32,407 - plugin.discovery - DEBUG - scanning module module_loader.sink_plugins.logfile_handler
+2023-04-14 16:48:32,407 - plugin.discovery - DEBUG - found plugin spec in module_loader.sink_plugins.logfile_handler:LogFilePlugin PluginSpec(sink.logfile = <class 'module_loader.sink_plugins.logfile_handler.LogFilePlugin'>)
+2023-04-14 16:48:32,408 - plugin.discovery - DEBUG - scanning module module_loader.sink_plugins.oracle_handler
+2023-04-14 16:48:32,408 - plugin.discovery - DEBUG - found plugin spec in module_loader.sink_plugins.oracle_handler:OraclePlugin PluginSpec(sink.oracle = <class 'module_loader.sink_plugins.oracle_handler.OraclePlugin'>)
+2023-04-14 16:48:32,408 - plugin.discovery - DEBUG - scanning module module_loader.sink_plugins
+2023-04-14 16:48:35,253 - root - DEBUG - Run table script successfully: ['CREATE TABLE `product_des` (`id` int NOT NULL AUTO_INCREMENT, ProductID varchar(220) NULL, Product_Name varchar(220) NULL, Cost varchar(220) NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB']
+2023-04-14 16:48:36,839 - root - DEBUG - op=filter: at=$, where=Product_Name ==> = ==> Maggie
+2023-04-14 16:48:36,839 - root - DEBUG - $[?(Product_Name="Maggie")]
+2023-04-14 16:48:40,128 - root - DEBUG - Show value of filter with the data: {'ProductID': 1, 'Product_Name': 'Parle G', 'Cost': 100}
+2023-04-14 16:48:40,129 - root - DEBUG - Parser pattern = $.[?[Expression(Fields('Product_Name') = 'Maggie')]]
+2023-04-14 16:48:40,129 - root - DEBUG - The data which want to parser = {'ProductID': 1, 'Product_Name': 'Parle G', 'Cost': 100}
+2023-04-14 16:48:41,661 - root - DEBUG - Show value of filter with the data: {'ProductID': 2, 'Product_Name': 'Maggie', 'Cost': 112}
+2023-04-14 16:48:41,661 - root - DEBUG - Parser pattern = $.[?[Expression(Fields('Product_Name') = 'Maggie')]]
+2023-04-14 16:48:41,661 - root - DEBUG - The data which want to parser = {'ProductID': 2, 'Product_Name': 'Maggie', 'Cost': 112}
+2023-04-14 16:48:41,662 - root - DEBUG - The data after filter = {'ProductID': 2, 'Product_Name': 'Maggie', 'Cost': 112}
+2023-04-14 16:48:43,540 - root - INFO - Sink the data to destination MySQL: {'ProductID': 2, 'Product_Name': 'Maggie', 'Cost': 112} 
+2023-04-14 16:48:44,175 - root - INFO - Insert data to table = [2, 'Maggie', 112]
+2023-04-14 16:48:44,702 - root - INFO - Sink the data to destination Logfile: {'ProductID': 2, 'Product_Name': 'Maggie', 'Cost': 112} 
+2023-04-14 16:48:44,703 - root - ERROR - Cannot sink data {'ProductID': 2, 'Product_Name': 'Maggie', 'Cost': 112} to log file: [Errno 2] No such file or directory: '/dataconfig/sample_data_energy_642fe645ae925cc0c2cd5302/logs/642fe661ae925cc0c2cd5304.log'
+2023-04-14 16:48:45,256 - root - DEBUG - Show value of filter with the data: {'ProductID': 3, 'Product_Name': 'GoodDay Biscuit', 'Cost': 150}
+2023-04-14 16:48:45,256 - root - DEBUG - Parser pattern = $.[?[Expression(Fields('Product_Name') = 'Maggie')]]
+2023-04-14 16:48:45,256 - root - DEBUG - The data which want to parser = {'ProductID': 3, 'Product_Name': 'GoodDay Biscuit', 'Cost': 150}
+2023-04-14 16:48:45,778 - root - DEBUG - Show value of filter with the data: {'ProductID': 4, 'Product_Name': 'GoodDay Biscuit 3', 'Cost': 150}
+2023-04-14 16:48:45,779 - root - DEBUG - Parser pattern = $.[?[Expression(Fields('Product_Name') = 'Maggie')]]
+2023-04-14 16:48:45,779 - root - DEBUG - The data which want to parser = {'ProductID': 4, 'Product_Name': 'GoodDay Biscuit 3', 'Cost': 150}
+2023-04-14 16:48:46,290 - root - DEBUG - Show value of filter with the data: {'ProductID': 5, 'Product_Name': 'GoodDay Biscuit 4', 'Cost': 150}
+2023-04-14 16:48:46,290 - root - DEBUG - Parser pattern = $.[?[Expression(Fields('Product_Name') = 'Maggie')]]
+2023-04-14 16:48:46,290 - root - DEBUG - The data which want to parser = {'ProductID': 5, 'Product_Name': 'GoodDay Biscuit 4', 'Cost': 150}
+2023-04-14 16:48:46,812 - root - DEBUG - Show value of filter with the data: {'ProductID': 6, 'Product_Name': 'GoodDay Biscuit 5', 'Cost': 150}
+2023-04-14 16:48:46,812 - root - DEBUG - Parser pattern = $.[?[Expression(Fields('Product_Name') = 'Maggie')]]
+2023-04-14 16:48:46,812 - root - DEBUG - The data which want to parser = {'ProductID': 6, 'Product_Name': 'GoodDay Biscuit 5', 'Cost': 150}
+2023-04-14 16:48:47,498 - root - DEBUG - Show value of filter with the data: {'ProductID': 7, 'Product_Name': 'GoodDay Biscuit 5', 'Cost': 150}
+2023-04-14 16:48:47,498 - root - DEBUG - Parser pattern = $.[?[Expression(Fields('Product_Name') = 'Maggie')]]
+2023-04-14 16:48:47,498 - root - DEBUG - The data which want to parser = {'ProductID': 7, 'Product_Name': 'GoodDay Biscuit 5', 'Cost': 150}
+2023-04-14 16:48:48,009 - root - DEBUG - Show value of filter with the data: {'ProductID': 8, 'Product_Name': 'GoodDay Biscuit 6', 'Cost': 150}
+2023-04-14 16:48:48,010 - root - DEBUG - Parser pattern = $.[?[Expression(Fields('Product_Name') = 'Maggie')]]
+2023-04-14 16:48:48,010 - root - DEBUG - The data which want to parser = {'ProductID': 8, 'Product_Name': 'GoodDay Biscuit 6', 'Cost': 150}
+2023-04-14 16:48:48,715 - root - DEBUG - Show value of filter with the data: {'ProductID': 9, 'Product_Name': 'GoodDay Biscuit 7', 'Cost': 150}
+2023-04-14 16:48:48,715 - root - DEBUG - Parser pattern = $.[?[Expression(Fields('Product_Name') = 'Maggie')]]
+2023-04-14 16:48:48,715 - root - DEBUG - The data which want to parser = {'ProductID': 9, 'Product_Name': 'GoodDay Biscuit 7', 'Cost': 150}
+2023-04-14 16:48:49,022 - root - DEBUG - Show value of filter with the data: {'ProductID': 10, 'Product_Name': 'GoodDay Biscuit 8', 'Cost': 150}
+2023-04-14 16:48:49,022 - root - DEBUG - Parser pattern = $.[?[Expression(Fields('Product_Name') = 'Maggie')]]
+2023-04-14 16:48:49,022 - root - DEBUG - The data which want to parser = {'ProductID': 10, 'Product_Name': 'GoodDay Biscuit 8', 'Cost': 150}
+2023-04-14 16:54:37,166 - root - DEBUG - Info Config {'id': '642fe645ae925cc0c2cd5302', 'name': 'sample_data_energy', 'jobId': '642fe661ae925cc0c2cd5303', 'jobTaskId': '642fe661ae925cc0c2cd5304', 'build_operation': {'ops': {'filter': [{'__comment': 'specification of an op, specific to op', 'at': '$', 'where': {'field': 'Product_Name', 'operator': '=', 'value': 'Maggie'}}]}}, 'userId': '642664152a9ea736837171b4', 'is_enabled': True, 'image': 'etl-modules', 'version': 'latest', 'source': {'id': '642fd392f289a3aa36f9642c', 'type': 'MySQL', 'name': 'hieu_mysql_machine', 'host': '192.168.10.21', 'port': '3306', 'user': 'root', 'password': 'root', 'database': 'databiz_demo', 'schema': {'table': 'Products', 'select': ['ProductID', 'Product_Name', 'Cost']}}, 'destinations': [{'id': '642fd392f289a3aa36f9642c', 'type': 'MySQL', 'name': 'hieu_mysql_machine', 'host': '192.168.10.21', 'port': '3306', 'user': 'root', 'password': 'root', 'database': 'databiz_demo', 'schema': {'create_tables': ['CREATE TABLE `product_des` (`id` int NOT NULL AUTO_INCREMENT, ProductID varchar(220) NULL, Product_Name varchar(220) NULL, Cost varchar(220) NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB'], 'sink_to': 'product_des', 'select': ['ProductID', 'Product_Name', 'Cost']}}, {'type': 'logfile', 'name': 'Logfile', 'schema': {'filename': '642fe661ae925cc0c2cd5304.log', 'logpath': '/dataconfig/sample_data_energy_642fe645ae925cc0c2cd5302/logs'}}]}
+2023-04-14 16:54:37,166 - root - DEBUG - Location to load plugins = /home/cabar/datapeach/ETLService/src
+2023-04-14 16:54:37,189 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.pd_combine_operator
+2023-04-14 16:54:37,189 - plugin.discovery - DEBUG - found plugin spec in module_loader.operator_plugins.pd_combine_operator:PDCombinePlugin PluginSpec(operator.pd_combine = <class 'module_loader.operator_plugins.pd_combine_operator.PDCombinePlugin'>)
+2023-04-14 16:54:37,189 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.test_operator
+2023-04-14 16:54:37,224 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.enrichment_operator
+2023-04-14 16:54:37,224 - plugin.discovery - DEBUG - found plugin spec in module_loader.operator_plugins.enrichment_operator:EnrichmentPlugin PluginSpec(operator.enrich_temp = <class 'module_loader.operator_plugins.enrichment_operator.EnrichmentPlugin'>)
+2023-04-14 16:54:37,514 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.pd_enrich_operator
+2023-04-14 16:54:37,514 - plugin.discovery - DEBUG - found plugin spec in module_loader.operator_plugins.pd_enrich_operator:PDEnrichPlugin PluginSpec(operator.pd_match1 = <class 'module_loader.operator_plugins.pd_enrich_operator.PDEnrichPlugin'>)
+2023-04-14 16:54:37,515 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.enrich_operator
+2023-04-14 16:54:37,515 - plugin.discovery - DEBUG - found plugin spec in module_loader.operator_plugins.enrich_operator:PDCombinePlugin PluginSpec(operator.enrich = <class 'module_loader.operator_plugins.enrich_operator.PDCombinePlugin'>)
+2023-04-14 16:54:37,515 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.filter_operator
+2023-04-14 16:54:37,515 - plugin.discovery - DEBUG - found plugin spec in module_loader.operator_plugins.filter_operator:MatchPlugin PluginSpec(operator.filter = <class 'module_loader.operator_plugins.filter_operator.MatchPlugin'>)
+2023-04-14 16:54:37,515 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins
+2023-04-14 16:54:37,535 - plugin.discovery - DEBUG - scanning module module_loader.source_plugins.pulsar_handler
+2023-04-14 16:54:37,535 - plugin.discovery - DEBUG - found plugin spec in module_loader.source_plugins.pulsar_handler:PulsarPlugin PluginSpec(source.pulsar = <class 'module_loader.source_plugins.pulsar_handler.PulsarPlugin'>)
+2023-04-14 16:54:37,652 - plugin.discovery - DEBUG - scanning module module_loader.source_plugins.mysql_handler
+2023-04-14 16:54:37,652 - plugin.discovery - DEBUG - found plugin spec in module_loader.source_plugins.mysql_handler:SourceMysqlPlugin PluginSpec(source.mysql = <class 'module_loader.source_plugins.mysql_handler.SourceMysqlPlugin'>)
+2023-04-14 16:54:37,652 - plugin.discovery - DEBUG - scanning module module_loader.source_plugins
+2023-04-14 16:54:37,654 - plugin.discovery - DEBUG - scanning module module_loader.sink_plugins.mysql_handler
+2023-04-14 16:54:37,654 - plugin.discovery - DEBUG - found plugin spec in module_loader.sink_plugins.mysql_handler:MysqlPlugin PluginSpec(sink.mysql = <class 'module_loader.sink_plugins.mysql_handler.MysqlPlugin'>)
+2023-04-14 16:54:37,654 - plugin.discovery - DEBUG - scanning module module_loader.sink_plugins.logfile_handler
+2023-04-14 16:54:37,654 - plugin.discovery - DEBUG - found plugin spec in module_loader.sink_plugins.logfile_handler:LogFilePlugin PluginSpec(sink.logfile = <class 'module_loader.sink_plugins.logfile_handler.LogFilePlugin'>)
+2023-04-14 16:54:37,655 - plugin.discovery - DEBUG - scanning module module_loader.sink_plugins.oracle_handler
+2023-04-14 16:54:37,655 - plugin.discovery - DEBUG - found plugin spec in module_loader.sink_plugins.oracle_handler:OraclePlugin PluginSpec(sink.oracle = <class 'module_loader.sink_plugins.oracle_handler.OraclePlugin'>)
+2023-04-14 16:54:37,655 - plugin.discovery - DEBUG - scanning module module_loader.sink_plugins
+2023-04-14 16:54:42,085 - root - DEBUG - Run table script successfully: ['CREATE TABLE `product_des` (`id` int NOT NULL AUTO_INCREMENT, ProductID varchar(220) NULL, Product_Name varchar(220) NULL, Cost varchar(220) NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB']
+2023-04-14 16:54:45,703 - root - DEBUG - op=filter: at=$, where=Product_Name ==> = ==> Maggie
+2023-04-14 16:54:45,704 - root - DEBUG - $[?(Product_Name="Maggie")]
+2023-04-14 17:16:18,645 - root - DEBUG - Info Config {'id': '6437a3f2a92bf969ac348de7', 'name': 'mysql to mysql', 'jobId': '6437b02e212e7357cf1cd6ce', 'jobTaskId': '6437b030212e7357cf1cd6d0', 'build_operation': {'ops': {'filter': [{'__comment': 'specification of an op, specific to op', 'at': '$', 'where': {'field': 'Product_Name', 'operator': '=', 'value': 'Maggie'}}]}}, 'userId': '641d682a4280a95d3da9168a', 'is_enabled': True, 'image': 'etl-modules', 'version': 'latest', 'source': {'id': '642fd392f289a3aa36f9642c', 'type': 'MySQL', 'name': 'hieu_mysql_machine', 'host': '192.168.10.21', 'port': '3306', 'user': 'root', 'password': 'root', 'database': 'databiz_demo', 'schema': {'table': 'Products', 'select': ['ProductID', 'Product_Name', 'Cost']}}, 'destinations': [{'id': '642fd392f289a3aa36f9642c', 'type': 'MySQL', 'name': 'hieu_mysql_machine', 'host': '192.168.10.21', 'port': '3306', 'user': 'root', 'password': 'root', 'database': 'databiz_demo', 'schema': {'create_tables': ['CREATE TABLE `product_des` (`id` int NOT NULL AUTO_INCREMENT, ProductID varchar(220) NULL, Product_Name varchar(220) NULL, Cost varchar(220) NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB'], 'sink_to': 'product_des', 'select': ['ProductID', 'Product_Name', 'Cost']}}, {'type': 'logfile', 'name': 'Logfile', 'schema': {'filename': '642fe661ae925cc0c2cd5304.log', 'logpath': '/dataconfig/sample_data_energy_642fe645ae925cc0c2cd5302/logs'}}]}
+2023-04-14 17:16:18,646 - root - DEBUG - Location to load plugins = /home/cabar/datapeach/ETLService/src
+2023-04-14 17:16:18,673 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.pd_combine_operator
+2023-04-14 17:16:18,674 - plugin.discovery - DEBUG - found plugin spec in module_loader.operator_plugins.pd_combine_operator:PDCombinePlugin PluginSpec(operator.pd_combine = <class 'module_loader.operator_plugins.pd_combine_operator.PDCombinePlugin'>)
+2023-04-14 17:16:18,683 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.filter_operator
+2023-04-14 17:16:18,683 - plugin.discovery - DEBUG - found plugin spec in module_loader.operator_plugins.filter_operator:MatchPlugin PluginSpec(operator.filter = <class 'module_loader.operator_plugins.filter_operator.MatchPlugin'>)
+2023-04-14 17:16:19,048 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.pd_enrich_operator
+2023-04-14 17:16:19,048 - plugin.discovery - DEBUG - found plugin spec in module_loader.operator_plugins.pd_enrich_operator:PDEnrichPlugin PluginSpec(operator.pd_match1 = <class 'module_loader.operator_plugins.pd_enrich_operator.PDEnrichPlugin'>)
+2023-04-14 17:16:19,048 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins
+2023-04-14 17:16:19,049 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.test_operator
+2023-04-14 17:16:19,084 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.enrichment_operator
+2023-04-14 17:16:19,084 - plugin.discovery - DEBUG - found plugin spec in module_loader.operator_plugins.enrichment_operator:EnrichmentPlugin PluginSpec(operator.enrich_temp = <class 'module_loader.operator_plugins.enrichment_operator.EnrichmentPlugin'>)
+2023-04-14 17:16:19,085 - plugin.discovery - DEBUG - scanning module module_loader.operator_plugins.enrich_operator
+2023-04-14 17:16:19,085 - plugin.discovery - DEBUG - found plugin spec in module_loader.operator_plugins.enrich_operator:PDCombinePlugin PluginSpec(operator.enrich = <class 'module_loader.operator_plugins.enrich_operator.PDCombinePlugin'>)
+2023-04-14 17:16:19,086 - plugin.discovery - DEBUG - scanning module module_loader.source_plugins
+2023-04-14 17:16:19,108 - plugin.discovery - DEBUG - scanning module module_loader.source_plugins.pulsar_handler
+2023-04-14 17:16:19,108 - plugin.discovery - DEBUG - found plugin spec in module_loader.source_plugins.pulsar_handler:PulsarPlugin PluginSpec(source.pulsar = <class 'module_loader.source_plugins.pulsar_handler.PulsarPlugin'>)
+2023-04-14 17:16:19,256 - plugin.discovery - DEBUG - scanning module module_loader.source_plugins.mysql_handler
+2023-04-14 17:16:19,256 - plugin.discovery - DEBUG - found plugin spec in module_loader.source_plugins.mysql_handler:SourceMysqlPlugin PluginSpec(source.mysql = <class 'module_loader.source_plugins.mysql_handler.SourceMysqlPlugin'>)
+2023-04-14 17:16:19,258 - plugin.discovery - DEBUG - scanning module module_loader.sink_plugins.mysql_handler
+2023-04-14 17:16:19,258 - plugin.discovery - DEBUG - found plugin spec in module_loader.sink_plugins.mysql_handler:MysqlPlugin PluginSpec(sink.mysql = <class 'module_loader.sink_plugins.mysql_handler.MysqlPlugin'>)
+2023-04-14 17:16:19,258 - plugin.discovery - DEBUG - scanning module module_loader.sink_plugins.oracle_handler
+2023-04-14 17:16:19,258 - plugin.discovery - DEBUG - found plugin spec in module_loader.sink_plugins.oracle_handler:OraclePlugin PluginSpec(sink.oracle = <class 'module_loader.sink_plugins.oracle_handler.OraclePlugin'>)
+2023-04-14 17:16:19,259 - plugin.discovery - DEBUG - scanning module module_loader.sink_plugins
+2023-04-14 17:16:19,259 - plugin.discovery - DEBUG - scanning module module_loader.sink_plugins.logfile_handler
+2023-04-14 17:16:19,259 - plugin.discovery - DEBUG - found plugin spec in module_loader.sink_plugins.logfile_handler:LogFilePlugin PluginSpec(sink.logfile = <class 'module_loader.sink_plugins.logfile_handler.LogFilePlugin'>)
+2023-04-14 17:16:24,932 - root - DEBUG - Table already exists.
+2023-04-14 17:16:26,579 - root - DEBUG - op=filter: at=$, where=Product_Name ==> = ==> Maggie
+2023-04-14 17:16:26,579 - root - DEBUG - $[?(Product_Name="Maggie")]
+2023-04-14 17:16:35,940 - root - DEBUG - Show value of filter with the data: {'ProductID': 1, 'Product_Name': 'Parle G', 'Cost': 100}
+2023-04-14 17:16:35,941 - root - DEBUG - Parser pattern = $.[?[Expression(Fields('Product_Name') = 'Maggie')]]
+2023-04-14 17:16:35,941 - root - DEBUG - The data which want to parser = {'ProductID': 1, 'Product_Name': 'Parle G', 'Cost': 100}
+2023-04-14 17:16:37,189 - root - DEBUG - Show value of filter with the data: {'ProductID': 2, 'Product_Name': 'Maggie', 'Cost': 112}
+2023-04-14 17:16:37,189 - root - DEBUG - Parser pattern = $.[?[Expression(Fields('Product_Name') = 'Maggie')]]
+2023-04-14 17:16:37,189 - root - DEBUG - The data which want to parser = {'ProductID': 2, 'Product_Name': 'Maggie', 'Cost': 112}
+2023-04-14 17:16:37,189 - root - DEBUG - The data after filter = {'ProductID': 2, 'Product_Name': 'Maggie', 'Cost': 112}
+2023-04-14 17:16:38,314 - root - INFO - Sink the data to destination MySQL: {'ProductID': 2, 'Product_Name': 'Maggie', 'Cost': 112} 
+2023-04-14 17:16:38,663 - root - INFO - Insert data to table = [2, 'Maggie', 112]
+2023-04-14 17:16:39,011 - root - INFO - Sink the data to destination Logfile: {'ProductID': 2, 'Product_Name': 'Maggie', 'Cost': 112} 
+2023-04-14 17:16:39,011 - root - ERROR - Cannot sink data {'ProductID': 2, 'Product_Name': 'Maggie', 'Cost': 112} to log file: [Errno 2] No such file or directory: '/dataconfig/sample_data_energy_642fe645ae925cc0c2cd5302/logs/642fe661ae925cc0c2cd5304.log'
+2023-04-14 17:16:44,396 - root - DEBUG - Show value of filter with the data: {'ProductID': 3, 'Product_Name': 'GoodDay Biscuit', 'Cost': 150}
+2023-04-14 17:16:44,397 - root - DEBUG - Parser pattern = $.[?[Expression(Fields('Product_Name') = 'Maggie')]]
+2023-04-14 17:16:44,397 - root - DEBUG - The data which want to parser = {'ProductID': 3, 'Product_Name': 'GoodDay Biscuit', 'Cost': 150}
+2023-04-14 17:16:44,397 - root - DEBUG - Show value of filter with the data: {'ProductID': 4, 'Product_Name': 'GoodDay Biscuit 3', 'Cost': 150}
+2023-04-14 17:16:44,397 - root - DEBUG - Parser pattern = $.[?[Expression(Fields('Product_Name') = 'Maggie')]]
+2023-04-14 17:16:44,397 - root - DEBUG - The data which want to parser = {'ProductID': 4, 'Product_Name': 'GoodDay Biscuit 3', 'Cost': 150}
+2023-04-14 17:16:44,397 - root - DEBUG - Show value of filter with the data: {'ProductID': 5, 'Product_Name': 'GoodDay Biscuit 4', 'Cost': 150}
+2023-04-14 17:16:44,398 - root - DEBUG - Parser pattern = $.[?[Expression(Fields('Product_Name') = 'Maggie')]]
+2023-04-14 17:16:44,398 - root - DEBUG - The data which want to parser = {'ProductID': 5, 'Product_Name': 'GoodDay Biscuit 4', 'Cost': 150}
+2023-04-14 17:16:44,398 - root - DEBUG - Show value of filter with the data: {'ProductID': 6, 'Product_Name': 'GoodDay Biscuit 5', 'Cost': 150}
+2023-04-14 17:16:44,398 - root - DEBUG - Parser pattern = $.[?[Expression(Fields('Product_Name') = 'Maggie')]]
+2023-04-14 17:16:44,398 - root - DEBUG - The data which want to parser = {'ProductID': 6, 'Product_Name': 'GoodDay Biscuit 5', 'Cost': 150}
+2023-04-14 17:16:44,398 - root - DEBUG - Show value of filter with the data: {'ProductID': 7, 'Product_Name': 'GoodDay Biscuit 5', 'Cost': 150}
+2023-04-14 17:16:44,398 - root - DEBUG - Parser pattern = $.[?[Expression(Fields('Product_Name') = 'Maggie')]]
+2023-04-14 17:16:44,398 - root - DEBUG - The data which want to parser = {'ProductID': 7, 'Product_Name': 'GoodDay Biscuit 5', 'Cost': 150}
+2023-04-14 17:16:44,398 - root - DEBUG - Show value of filter with the data: {'ProductID': 8, 'Product_Name': 'GoodDay Biscuit 6', 'Cost': 150}
+2023-04-14 17:16:44,398 - root - DEBUG - Parser pattern = $.[?[Expression(Fields('Product_Name') = 'Maggie')]]
+2023-04-14 17:16:44,398 - root - DEBUG - The data which want to parser = {'ProductID': 8, 'Product_Name': 'GoodDay Biscuit 6', 'Cost': 150}
+2023-04-14 17:16:44,398 - root - DEBUG - Show value of filter with the data: {'ProductID': 9, 'Product_Name': 'GoodDay Biscuit 7', 'Cost': 150}
+2023-04-14 17:16:44,398 - root - DEBUG - Parser pattern = $.[?[Expression(Fields('Product_Name') = 'Maggie')]]
+2023-04-14 17:16:44,399 - root - DEBUG - The data which want to parser = {'ProductID': 9, 'Product_Name': 'GoodDay Biscuit 7', 'Cost': 150}
+2023-04-14 17:16:44,399 - root - DEBUG - Show value of filter with the data: {'ProductID': 10, 'Product_Name': 'GoodDay Biscuit 8', 'Cost': 150}
+2023-04-14 17:16:44,399 - root - DEBUG - Parser pattern = $.[?[Expression(Fields('Product_Name') = 'Maggie')]]
+2023-04-14 17:16:44,399 - root - DEBUG - The data which want to parser = {'ProductID': 10, 'Product_Name': 'GoodDay Biscuit 8', 'Cost': 150}

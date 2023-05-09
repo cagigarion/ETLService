@@ -1,0 +1,132 @@
+{
+    "id": "642fe645ae925cc0c2cd5302",
+    "name": "sample_data_energy",
+    "jobId": "642fe661ae925cc0c2cd5303",
+    "jobTaskId": "642fe661ae925cc0c2cd5304",
+    "build_operation": {
+        "ops": {
+            "filter": [
+                {
+                    "__comment": "specification of an op, specific to op",
+                    "at": "$",
+                    "where": {
+                        "field": "state",
+                        "operator": "=",
+                        "value": "Houston"
+                    }
+                },
+                {
+                    "__comment": "specification of an op, specific to op",
+                    "at": "$",
+                    "where": {
+                        "field": "measurement",
+                        "operator": "=",
+                        "value": "Gas (Therms)"
+                    }
+                }
+            ],
+            "enrich": [
+                {
+                    "field": "location",
+                    "pattern": "https://maps.google.com/?q={latitude},{longitude}"
+                }
+            ]
+        }
+    },
+    "userId": "642664152a9ea736837171b4",
+    "is_enabled": true,
+    "image": "etl-modules",
+    "version": "latest",
+    "source": {
+        "id": "642fd35bf289a3aa36f96427",
+        "type": "Pulsar",
+        "name": "hieu_pulsar_machine",
+        "hostname": "192.168.1.7",
+        "port": "6650",
+        "api_port": "8080",
+        "tenant": "public",
+        "namespace": "default",
+        "api-version": "/admin/v2",
+        "topic": "non-persistent://public/default/topic1007",
+        "schema": {
+            "type": "record",
+            "name": "OilRecord",
+            "fields": [
+                {
+                    "name": "measurement",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                {
+                    "name": "consuming",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                {
+                    "name": "postcode",
+                    "type": [
+                        "null",
+                        "int"
+                    ]
+                },
+                {
+                    "name": "latitude",
+                    "type": [
+                        "null",
+                        "float"
+                    ]
+                },
+                {
+                    "name": "longitude",
+                    "type": [
+                        "null",
+                        "float"
+                    ]
+                },
+                {
+                    "name": "state",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                }
+            ]
+        }
+    },
+    "destinations": [
+        {
+            "id": "642fd392f289a3aa36f9642c",
+            "type": "MySQL",
+            "name": "hieu_mysql_machine",
+            "host": "192.168.1.7",
+            "port": "3306",
+            "user": "root",
+            "password": "root",
+            "database": "databiz_demo",
+            "schema": {
+                "create_tables": [
+                    "CREATE TABLE `demo_data_1_energy` (`id` int NOT NULL AUTO_INCREMENT, measurement nvarchar(220) NULL, consuming nvarchar(220) NULL, state nvarchar(220) NULL, location nvarchar(220) NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB"
+                ],
+                "sink_to": "demo_data_1_energy",
+                "select": [
+                    "measurement",
+                    "consuming",
+                    "state",
+                    "location"
+                ]
+            }
+        },
+        {
+            "type": "logfile",
+            "name": "Logfile",
+            "schema": {
+                "filename": "642fe661ae925cc0c2cd5304.log",
+                "logpath": "/dataconfig/logs"
+            }
+        }
+    ]
+}
