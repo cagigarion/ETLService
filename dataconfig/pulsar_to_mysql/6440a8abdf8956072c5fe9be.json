@@ -15,8 +15,8 @@
 								"at": "$",
 								"where": {
 									"field": "timestamp",
-									"operator": "expression",
-									"value": "interval(60)"
+									"operator": "every",
+									"value": "60"
 								}
 							}
 						]
@@ -50,7 +50,7 @@
 							]
 						}
 					},{
-						"api_link": "http://localhost:3000/api/well/?well_id={well_id}&start_date=sub_seconds({timestamp}, 15)&end_date={timestamp}",
+						"api_link": "http://localhost:3000/api/well/?well_id={well_id}&start_date=<operator>sub_minutes({timestamp}, 15)</operator>&end_date={timestamp}",
 						"method": "GET",
 						"body": {},
 						"response_schema": {
@@ -85,7 +85,7 @@
         "id": "6424fb07a2f9c3246f4e2239",
         "type": "Pulsar",
         "name": "Pulsar",
-        "hostname": "localhost",
+        "hostname": "40.124.169.219",
         "port": "6650",
         "api_port": "8080",
         "tenant": "public",

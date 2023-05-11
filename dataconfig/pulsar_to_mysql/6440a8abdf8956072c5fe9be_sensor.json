@@ -15,8 +15,8 @@
 								"at": "$",
 								"where": {
 									"field": "timestamp",
-									"operator": "expression",
-									"value": "interval(60)"
+									"operator": "every",
+									"value": "60"
 								}
 							}
 						]

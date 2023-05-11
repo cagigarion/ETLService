@@ -43,7 +43,7 @@ class MatchPlugin(Plugin):
         for logical_operator in logical_operators:
             where = logical_operator["where"]
             operator = where["operator"]
-            if operator == "expression":
+            if operator == "every":
                 array_query.append(
                     dict(operator_name=operator, field=where["field"], operator_value=where["value"]))
             elif operator == "equals_field" or operator == "not_equals_field" or operator == "greater_field" or operator == "less_field":
@@ -112,8 +112,8 @@ class MatchPlugin(Plugin):
             return input_data.get(operator_value) is None
         elif operator_name == "is_not_null":
             return input_data.get(operator_value) is not None
-        elif operator_name == "expression":
-            return self.verify_expression(operator, input_data)
+        elif operator_name == "every":
+            return self.every_expression(operator, input_data)
         else:
             return False
 
@@ -131,23 +131,19 @@ class MatchPlugin(Plugin):
         elif type_name == "hours":
             return next_time + timedelta(hours=time_value)
 
-    def verify_expression(self, operator, input_data):
+    def every_expression(self, operator, input_data):
         field_name = operator["field"]
-        operator_value = operator["operator_value"]
-        if operator_value[0:len("interval")] == "interval":
-            arg = operator_value[len("interval("):len(operator_value)-1]
-            run_next_time = self.get_interval_data({"time_value": arg, "type":"seconds"})
-            logging.info("run_next_time value:" + str(run_next_time))
-            current_time = pd.to_datetime(input_data[field_name])
+        run_next_time = self.get_interval_data({"time_value": operator["operator_value"], "type":"seconds"})
+        logging.info("run_next_time value:" + str(run_next_time))
+        current_time = pd.to_datetime(input_data[field_name])
 
-            if run_next_time is not None and run_next_time <= current_time:
-                set_run_next_time(run_next_time)
-                return True
-            else:
-                if run_next_time is None:
-                    set_run_next_time(current_time)
-                return False
-        return True
+        if run_next_time is not None and run_next_time <= current_time:
+            set_run_next_time(run_next_time)
+            return True
+        else:
+            if run_next_time is None:
+                set_run_next_time(current_time)
+            return False
 
     def processing_data(self, input_data):
         for query in self.querys:
