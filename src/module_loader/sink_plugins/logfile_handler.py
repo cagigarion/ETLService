@@ -24,7 +24,7 @@ class LogFilePlugin(Plugin):
         logging.info(f'Sink the data to destination Logfile: {data} ')
         try:
             #write file to /dataconfig
-            with open(f'{self.log_path}/{self.file_name}', 'a+') as f:
+            with open(f'{self.log_path}{self.file_name}', 'a+') as f:
                 f.write(f'{data}\r\n')
         except Exception as e:
             logging.error(f'Cannot sink data {data} to log file: {e}')
